@@ -1,7 +1,17 @@
+@font-face {
+    font-family: Nexa;
+    src: url(assets/fonts/Nexa.ttf);
+}
+@font-face {
+    font-family: Nexa;
+    src: url(assets/fonts/Nexa.ttf);
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Nexa, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container {
@@ -238,3 +248,81 @@ footer {
     color: #fff;
     text-decoration: none;
 }
+
+/*style for contact-us page*/
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.contact-info {
+    width: 40%;
+    padding: 20px;
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    width: 50%;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0073aa;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #005f8d;
+}
+
+/*end style for contact-us page*/
