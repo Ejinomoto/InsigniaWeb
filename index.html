@@ -1,137 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VR Product Page</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VR Product Page</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <div class="header">
-            <a href="#" class="logo">
-                <img src="images/logo.jpg" alt="vroom logo"> 
-                </a>
-            <nav>
-                <ul>
-                    <li><a href="#">VR HEADSETS</a></li>
-                    <li><a href="#">ACCESSORIES</a></li>
-                    <li><a href="#">HEADPHONE</a></li>
-                    <li><a href="#">PC FOR VR</a></li>
-                    <li><a href="#">GAMING CONSULS</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <span class="call-us">Call us: <br> Free Support (012) 800-456-789</span>
-                <a href="#" class="cart"><span>$23.40</span></a>
-            </div>
+  <header>
+    <div class="logo-container">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="vroom logo">
+      </a>
+      <div class="header-actions">
+        <span class="call-us">Call us: <br> Free Support (012) 800-456-789</span>
+        <a href="#" class="cart"><span>$23.40</span></a>
+      </div>
+    </div>
+    <div class="navbar-container">
+      <nav>
+        <ul>
+          <li><a href="#">VR HEADSETS</a></li>
+          <li><a href="#">ACCESSORIES</a></li>
+          <li><a href="#">HEADPHONE</a></li>
+          <li><a href="#">PC FOR VR</a></li>
+          <li><a href="#">GAMING CONSULS</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <!-- <button type="submit">Search</button> -->
+      </div>
+    </div>
+  </header>
+  
+  
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Exclusive Offer - 20% Off This Month</h2>
+        <h1>PlayStation VR <br> Over 100 Games & Counting</h1>
+        <h3>Starting at $129</h3>
+        <a href="#" class="btn">SHOP NOW</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero-ps.png" alt="Playstation VR">
+      </div>
+    </div>
+  </section>
+
+  <section class="products">
+    <div class="container">
+      <div class="product-card">
+        <img src="images/product1.png" alt="Lenovo VR">
+        <h4>Lenovo - Mirage Solo</h4>
+        <p>Virtual Reality Headset</p>
+        <span>$399.00</span>
+      </div>
+      <div class="product-card">
+        <img src="images/product2.png" alt="Oculus VR">
+        <h4>Oculus - Rift + Touch</h4>
+        <p>Virtual Reality Headset</p>
+        <span>$399.00</span>
+      </div>
+      <div class="product-card">
+        <img src="images/product3.png" alt="Dell VR">
+        <h4>Dell - Visor</h4>
+        <p>Virtual Reality Headset</p>
+        <span>$349.99</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="more-products">
+    <div class="container">
+      <ul class="product-tabs">
+        <li class="active">New Arrivals</li>
+        <li>Featured</li>
+        <li>Top Rate</li>
+      </ul>
+      <div class="product-grid">
+        <div class="product-item">
+          <img src="images/product1.png" alt="Product 1">
+          <p>Sony - Playstation VR Bundle</p>
         </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Exclusive Offer - 20% Off This Month</h2>
-                <h1>PlayStation VR <br> Over 100 Games & Counting</h1>
-                <h3>Starting at $129</h3>
-                <a href="#" class="btn">SHOP NOW</a>
-            </div>
-            <div class="hero-image">
-                <img src="images/hero-ps.png" alt="Playstation VR"> 
-            </div>
+        <div class="product-item">
+          <img src="images/product1.png" alt="Product 2">
+          <p>Oculus Go - 32GB Stand Alone</p>
         </div>
-    </section>
-
-    <section class="products">
-        <div class="container">
-            <div class="product-card">
-                <img src="images/product1.png" alt="Lenovo VR">
-                <h4>Lenovo - Mirage Solo</h4>
-                <p>Virtual Reality Headset</p>
-                <span>$399.00</span>
-            </div>
-            <div class="product-card">
-                <img src="images/product2.png" alt="Oculus VR">
-                <h4>Oculus - Rift + Touch</h4>
-                <p>Virtual Reality Headset</p>
-                <span>$399.00</span>
-            </div>
-            <div class="product-card">
-                <img src="images/product3.png" alt="Dell VR">
-                <h4>Dell - Visor</h4>
-                <p>Virtual Reality Headset</p>
-                <span>$349.99</span>
-            </div>
+        <div class="product-item">
+          <img src="images/product1.png" alt="Product 3">
+          <p>MSI - VR One Backpack PC</p>
         </div>
-    </section>
-
-    <section class="more-products">
-        <div class="container">
-            <ul class="product-tabs">
-                <li class="active">New Arrivals</li>
-                <li>Featured</li>
-                <li>Top Rate</li>
-            </ul>
-            <div class="product-grid">
-                <div class="product-item">
-                    <img src="images/product1.png" alt="Product 1">
-                    <p>Sony - Playstation VR Bundle</p>
-                </div>
-                <div class="product-item">
-                    <img src="images/product1.png" alt="Product 2">
-                    <p>Oculus Go - 32GB Stand Alone</p>
-                </div>
-                <div class="product-item">
-                    <img src="images/product1.png" alt="Product 3">
-                    <p>MSI - VR One Backpack PC</p>
-                </div>
-                <div class="product-item">
-                    <img src="images/product1.png" alt="Product 4">
-                    <p>Oculus - Rift and Display Station</p>
-                </div>
-            </div>
-        </div >
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2>What Our Customers Say</h2>
-            <div class="testimonial">
-                <img src="images/product1.png" alt="Customer 1">
-                <p>“I was blown away by the quality of the VR experience. It's like being in a whole new world!”</p>
-                <span>- John Doe</span>
-            </div>
-            <div class="testimonial">
-                <img src="images/product1.png" alt="Customer 2">
-                <p>“I've never felt so immersed in a game before. The VR headset is a must-have for any gamer!”</p>
-                <span>- Jane Smith</span>
-            </div>
+        <div class="product-item">
+          <img src="images/product1.png" alt="Product 4">
+          <p>Oculus - Rift and Display Station</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-col">
-                <h4>About Us</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Get in Touch</h4>
-                <p>Phone: (012) 800-456-789</p>
-                <p>Email: [info@vroom.com](mailto:info@vroom.com)</p>
-                <p>Address: 123 Main St, Anytown, USA 12345</p>
-            </div>
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="#" class="facebook"></a></li>
-                    <li><a href="#" class="twitter"></a></li>
-                    <li><a href="#" class="instagram"></a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial">
+        <img src="images/product1.png" alt="Customer 1">
+        <p>“I was blown away by the quality of the VR experience. It's like being in a whole new world!”</p>
+        <span>- John Doe</span>
+      </div>
+      <div class="testimonial">
+        <img src="images/product1.png" alt="Customer 2">
+        <p>“I've never felt so immersed in a game before. The VR headset is a must-have for any gamer!”</p>
+        <span>- Jane Smith</span>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <footer>
+    <div class="container">
+      <div class="footer-col">
+        <h4>About Us</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed,
+          convallis ex.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <p>Phone: (012) 800-456-789</p>
+        <p>Email: [info@vroom.com](mailto:info@vroom.com)</p>
+        <p>Address: 123 Main St, Anytown, USA 12345</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#" class="facebook"></a></li>
+          <li><a href="#" class="twitter"></a></li>
+          <li><a href="#" class="instagram"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
