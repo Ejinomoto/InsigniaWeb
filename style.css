@@ -84,7 +84,7 @@ body {
   nav a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
     padding: 10px;
   }
 
@@ -93,7 +93,7 @@ body {
     border-radius: 40px;
     color: #3498db;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
     
   }
   
@@ -247,7 +247,7 @@ body {
   
   .product-item img {
     width: 80%;
-    height: 250px;
+    height: 150px;
     /* margin-left: 35px; */
     margin-top: -40px;
     object-fit: cover;
@@ -262,8 +262,8 @@ body {
 
   /* Container Styling */
 .mega-product {
-  background-color: #FF6A00; /* Similar orange color */
-  padding: 100px 0;
+  background-color: #FF6A00;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -277,26 +277,29 @@ body {
 
 /* Common Text Styling */
 .text-below, .text-above {
-  font-size: 100px;
+  font-size: 150px;
   font-weight: bold;
   letter-spacing: 10px;
   position: absolute;
   top: 20%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) translateY(50px);
+  opacity: 0;
+  transition: all 1s ease-in-out;
 }
 
 /* Text Below Image */
 .text-below {
   color: white;
-  z-index: 1; /* Positioned behind the image */
+  z-index: 1;
   opacity: 0.8;
+  animation: fade-slide-up 1.5s forwards ease-in-out 0.5s; /* 0.5s delay */
 }
 
 /* Image Styling */
 .image-container {
   position: relative;
-  z-index: 2; /* Image is above the below text */
+  z-index: 2;
 }
 
 .product-image {
@@ -307,8 +310,9 @@ body {
 /* Text Above Image (Outline) */
 .text-above {
   color: transparent;
-  -webkit-text-stroke: 2px white; /* Creates the outlined effect */
-  z-index: 3; /* Positioned above the image */
+  -webkit-text-stroke: 2px white;
+  z-index: 3;
+  animation: fade-slide-up 1.5s forwards ease-in-out 1s; /* 1s delay for smoother effect */
 }
 
 /* Product Info Styling */
@@ -325,6 +329,18 @@ body {
 .product-features li {
   font-size: 20px;
   margin: 10px 0;
+}
+
+/* Keyframe Animations */
+@keyframes fade-slide-up {
+  0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) translateY(50px); /* Initial position below */
+  }
+  100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) translateY(0); /* Slide to original position */
+  }
 }
 
 
