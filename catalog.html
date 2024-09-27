@@ -8,87 +8,151 @@
   </head>
   <body>
     <header>
-      <div class="header-top">
-        <div class="logo">
-          <h1>Toko Sparepart</h1>
-        </div>
-        <div class="search-bar">
-          <input type="text" placeholder="Cari produk..." />
-          <button class="search-btn">Search</button>
-        </div>
-        <div class="cart">
-          <a href="#" class="cart-icon">
-            <img src="/assets/img/cart-icon.png" alt="Cart" />
-            <span class="cart-count">2</span>
-          </a>
+      <div class="logo-container">
+        <a href="#" class="logo">
+          <img src="assets/img/logo.png" alt="vroom logo" />
+        </a>
+        <div class="header-actions">
+          <span class="call-us"
+            >Call us: <br />
+            Free Support (012) 800-456-789</span
+          >
+          <a href="#" class="cart"><span>$23.40</span></a>
         </div>
       </div>
-      <br />
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Products</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About Us</a>
-      </nav>
+      <div class="navbar-container">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our Products</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
+    <div class="search-bar-container">
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products..." />
+      </div>
+
+      <div class="filters">
+        <div class="filter filter-price-rating">
+          <select id="filterPriceRating">
+            <option value="default">Filter by Price/Rating</option>
+            <option value="price-low-high">Price: Low to High</option>
+            <option value="price-high-low">Price: High to Low</option>
+            <option value="rating-high-low">Rating: High to Low</option>
+            <option value="rating-low-high">Rating: Low to High</option>
+          </select>
+        </div>
+
+        <div class="filter filter-category">
+          <select id="filterCategory">
+            <option value="all">Filter by Category</option>
+            <option value="cpu">CPU</option>
+            <option value="motherboard">Motherboards</option>
+            <option value="ram">RAM</option>
+            <option value="gpu">Graphics Cards</option>
+            <option value="psu">PSU</option>
+            <option value="case">Computer Case</option>
+            <option value="storage">Storage</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
     <section class="product-grid">
-      <div class="product-card">
-        <img src="assets/img/2022-12-07-638fe895ad9f7.png" alt="Product 1" />
-        <p>Processor AMD</p>
-        <h3>Harga: Rp 4,500,000</h3>
+      <div class="product-card" data-price="4500000" data-rating="5" data-category="cpu">
+        <a href="product-detail.html?name=processor=assets/img/amd.avif" style="text-decoration: none">
+          <img src="assets/img/amd.avif" />
+          <p>Processor AMD</p>
+          <h3>Harga: Rp 4,500,000</h3>
+        </a>
       </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-07-638ffb2f00400.png" alt="Product 2" />
-        <p>Ram DDR4 16GB</p>
-        <h3>Harga: Rp 1,200,000</h3>
+      <div class="product-card" data-price="1200000" data-rating="4" data-category="ram">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/TECMIYO-16GB-DDR4-2400MHz-Sodimm-Ram-PC4-19200S-Notebook-Memory-RAM-1RX8-1-2V-for-Laptop.png_.avif" />
+          <p>Ram DDR4 16GB</p>
+          <h3>Harga: Rp 1,200,000</h3>
+        </a>
       </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-12-6396889594b32.png" alt="Product 3" />
-        <p>SSD 1TB</p>
-        <h3>Harga: Rp 1,800,000</h3>
+      <div class="product-card" data-price="1800000" data-rating="4.5" data-category="storage">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/Xraydisk-Sata3-Ssd-128GB-240GB-120GB-256GB-480GB-512gb-1TB-Hdd-2-5-Hard-Disk-Disc.jpg_.avif" />
+          <p>SSD 1TB</p>
+          <h3>Harga: Rp 1,800,000</h3>
+        </a>
       </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-12-63968c63375dd.png" alt="Product 4" />
-        <p>Motherboard ROG</p>
-        <h3>Harga: Rp 2,500,000</h3>
+      <div class="product-card" data-price="2500000" data-rating="4" data-category="motherboard">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/Used-MSI-Z370-KRAIT-GAMING-Intel-Z370-LGA-1151-DDR4-USB-3-1-ATX-Motherboard.jpg_.png" />
+          <p>Motherboard ROG</p>
+          <h3>Harga: Rp 2,500,000</h3>
+        </a>
       </div>
-      <div class="product-card large-card">
-        <img src="assets/img/monitor.jpg" style="max-height: 500px" alt="Product 1" />
-        <p style="color: black">Processor AMD</p>
-        <h3 style="color: black">Harga: Rp 4,500,000</h3>
+      <div class="product-card" data-price="2500000" data-rating="4.5" data-category="psu">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/12V-PC-Power-Supply-110-264V-Full-Modular-ATX-850W-80Plus-Gold-20-4Pin-12cm-Fan.jpg_.avif" />
+          <p>Power Supply Unit</p>
+          <h3>Harga: Rp 2,500,000</h3>
+        </a>
       </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-07-638fe895ad9f7.png" alt="Product 1" />
-        <p>Processor AMD</p>
-        <h3>Harga: Rp 4,500,000</h3>
+      <div class="product-card" data-price="2500000" data-rating="4.5" data-category="gpu">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/YUNYI-GTX-750Ti-2GB-Graphics-Card-NVIDlA-GTX750-750-Ti-2GB-Video-Screen-Cards-GPU-Desktop.jpg_.avif" />
+          <p>Nvidia GTX750</p>
+          <h3>Harga: Rp 4,300,000</h3>
+        </a>
       </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-07-638ffb2f00400.png" alt="Product 2" />
-        <p>Ram DDR4 16GB</p>
-        <h3>Harga: Rp 1,200,000</h3>
-      </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-12-6396889594b32.png" alt="Product 3" />
-        <p>SSD 1TB</p>
-        <h3>Harga: Rp 1,800,000</h3>
-      </div>
-      <div class="product-card">
-        <img src="assets/img/2022-12-12-63968c63375dd.png" alt="Product 4" />
-        <p>Motherboard ROG</p>
-        <h3>Harga: Rp 2,500,000</h3>
-      </div>
-      <div class="product-card large-card-3">
-        <img src="assets/img/monitor.jpg" style="max-height: 500px" alt="Product 1" />
-        <p style="color: black">Processor AMD</p>
-        <h3 style="color: black">Harga: Rp 4,500,000</h3>
-      </div>
-      <div class="product-card">
-        <img src="assets/img/mic-stand.jpg" style="height: 450px" alt="Product 3" />
-        <p>SSD 1TB</p>
-        <h3>Harga: Rp 1,800,000</h3>
+      <div class="product-card" data-price="2500000" data-rating="4.5" data-category="case">
+        <a href="product-detail.html" style="text-decoration: none">
+          <img src="assets/img/Controlled-White-Supernova-7-RGB-Fan-ATX-Tempered-Glass-Panel-Aquarium-Gaming-Computer-Case.jpg_.avif" />
+          <p>Clear Computer Case</p>
+          <h3>Harga: Rp 1,500,000</h3>
+        </a>
       </div>
     </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterPriceRating = document.getElementById("filterPriceRating");
+        const filterCategory = document.getElementById("filterCategory");
+        const productCards = document.querySelectorAll(".product-card");
+
+        filterPriceRating.addEventListener("change", function () {
+          const selectedOption = this.value;
+          let sortedProducts = Array.from(productCards);
+
+          if (selectedOption === "price-low-high") {
+            sortedProducts.sort((a, b) => a.dataset.price - b.dataset.price);
+          } else if (selectedOption === "price-high-low") {
+            sortedProducts.sort((a, b) => b.dataset.price - a.dataset.price);
+          } else if (selectedOption === "rating-high-low") {
+            sortedProducts.sort((a, b) => b.dataset.rating - a.dataset.rating);
+          } else if (selectedOption === "rating-low-high") {
+            sortedProducts.sort((a, b) => a.dataset.rating - b.dataset.rating);
+          }
+
+          const productGrid = document.querySelector(".product-grid");
+          productGrid.innerHTML = "";
+          sortedProducts.forEach((product) => productGrid.appendChild(product));
+        });
+
+        filterCategory.addEventListener("change", function () {
+          const selectedCategory = this.value;
+
+          productCards.forEach((card) => {
+            const category = card.dataset.category;
+
+            if (selectedCategory === "all" || category === selectedCategory) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
 
     <footer>
       <p>&copy; 2024 Toko Sparepart Komputer & Elektronik. All Rights Reserved.</p>
