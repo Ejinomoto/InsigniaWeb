@@ -12,6 +12,7 @@ body {
     padding: 0;
     justify-content: center;
   }
+
   
   header {
     background-color: #3498db;
@@ -84,6 +85,16 @@ body {
     color: #fff;
     text-decoration: none;
     font-size: 16px;
+    padding: 10px;
+  }
+
+  nav a:hover {
+    background-color: #fff;
+    border-radius: 40px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 16px;
+    
   }
   
   /* Search Bar Styles */
@@ -125,60 +136,94 @@ body {
     z-index: 1;
   }
   
-  /* Overlapping product image */
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    position: absolute;
-    top: -50px; /* Adjust this to control how much the image overlaps */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-  
   /* Product section */
-  .products {
-    padding-top: -120px; /* Add padding to accommodate the overlap */
-    padding-bottom: 50px;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .product-card {
-    display: inline-block;
-    margin: 20px;
-    width: 350px;
-    position: relative;
-  }
-  
-  .product-card h4 {
-    margin-top: 160px;
-  }
-  
-  .product-card span {
-    font-size: 18px;
-    font-weight: bold;
-    color: #3498db;
-  }
+.products {
+  margin-top: -100px;
+  padding-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.category-container {
+  display: flex;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+}
+
+.product-card {
+  display: flex; /* Change to flexbox layout */
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: calc(33.33% - 40px);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.product-card img {
+  width: 190px; /* Adjust image width */
+  height: 130px; /* Maintain image aspect ratio */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px; /* Add space between image and text */
+}
+
+.product-card .card-content {
+  flex: 1; /* Allow text section to take up remaining space */
+}
+
+.product-card h4 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.product-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.product-card span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3498db;
+}
+
   
   /* Additional sections */
+  .product-container {
+    /* display: flex; */
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+  }
+
   .more-products {
-    padding: 50px 0;
+    padding: 0px 0 50px ;
   }
   
   .product-tabs {
     list-style: none;
-    margin: 0;
+    margin-left: 20px;
+    margin-bottom: 0px;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   
   .product-tabs li {
     margin-right: 20px;
     cursor: pointer;
+  }
+
+  .product-tabs li:hover {
+    color: #3498db;
+    
   }
   
   .product-tabs li.active {
@@ -194,19 +239,111 @@ body {
   
   .product-item {
     margin: 20px;
+    margin-top: 70px;
     width: calc(25% - 40px);
+    background-color: aliceblue;
+    text-align: center;
   }
   
   .product-item img {
-    width: 100%;
-    height: 150px;
+    width: 80%;
+    height: 250px;
+    /* margin-left: 35px; */
+    margin-top: -40px;
     object-fit: cover;
     border-radius: 10px;
   }
+
+  .product-item p {
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+
+  /* Container Styling */
+.mega-product {
+  background-color: #FF6A00; /* Similar orange color */
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.mega-container {
+  position: relative;
+  text-align: center;
+}
+
+/* Common Text Styling */
+.text-below, .text-above {
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Text Below Image */
+.text-below {
+  color: white;
+  z-index: 1; /* Positioned behind the image */
+  opacity: 0.8;
+}
+
+/* Image Styling */
+.image-container {
+  position: relative;
+  z-index: 2; /* Image is above the below text */
+}
+
+.product-image {
+  width: 400px;
+  height: auto;
+}
+
+/* Text Above Image (Outline) */
+.text-above {
+  color: transparent;
+  -webkit-text-stroke: 2px white; /* Creates the outlined effect */
+  z-index: 3; /* Positioned above the image */
+}
+
+/* Product Info Styling */
+.product-info {
+  margin-top: 30px;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+
+.product-features li {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+
   
   .testimonials {
     padding: 50px 0;
     background-color: #f9f9f9;
+  }
+
+  .comment-container {
+    /* display: flex; */
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .comment-container h2 {
+    margin-left: 20px;
   }
   
   .testimonial {
@@ -214,6 +351,10 @@ body {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
+  }
+
+  .testimonial-container {
+    display: flex;
   }
   
   .testimonial img {
