@@ -6,51 +6,57 @@
     <link rel="stylesheet" href="style-contact-us.css">
     <title>Contact Us</title>
 </head>
-<body>
-    <div class="contact-left">
-        <h3>Contact Us</h3>
-        <h1>Get In <span>Touch</span></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia vulputate dui et fringilla. Pellentesque volutpat purus dolor.</p>
-        <div class="contact-info">
-            <div class="info-item">
-                <i class="fa fa-phone"></i>
-                <div>
-                    <h4>Phone Number</h4>
-                    <p>123-234-1234</p>
+<body>  
+    <div class="contact-container">
+        <div class="contact-left">
+            <h3 class="nexa-bold">Contact Us</h3>
+            <h1 class="nexa-bold">Get In <span>Touch</span></h1>
+            <p>Istana Komputer bergerak di bidang IT & Multimedia. Menyewakan perangkat untuk keperluan berbagai acara seperti seminar, pameran, meeting dan lain sebagainya. Melayani sewa harian, bulanan dan tahunan.</p>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa fa-phone"></i>
+                    <div>
+                        <h4>Phone Number</h4>
+                        <p>0812-1084-6420</p>
+                    </div>
                 </div>
-            </div>
-            <div class="info-item">
-                <i class="fa fa-envelope"></i>
-                <div>
-                    <h4>Email Address</h4>
-                    <p>info@awesomewebsite.com</p>
+                <div class="info-item">
+                    <i class="fa fa-envelope"></i>
+                    <div>
+                        <h4>Email Address</h4>
+                        <p><a href="mailto:iskomsarananusantara@gmail.com">iskomsarananusantara@gmail.com</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="info-item">
-                <i class="fa fa-globe"></i>
-                <div>
-                    <h4>Websites</h4>
-                    <p>www.awesomewebsite.com</p>
+                <div class="info-item">
+                    <i class="fa fa-globe"></i>
+                    <div>
+                        <h4>Websites</h4>
+                        <p><a href="">www.awesomewebsite.com</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="info-item">
-                <i class="fa fa-map-marker"></i>
-                <div>
-                    <h4>Address</h4>
-                    <p>50 Roving St., Big City, PKU 23456</p>
+                <div class="info-item">
+                    <i class="fa fa-map-marker"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>Jl.Bukti No 29 B , Kp. Makasar , Jaktim, DKI Jakarta.</p>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="contact-right">
+            <form action="#" method="POST">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Your Subject" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
-    <div class="contact-right">
-        <form action="#" method="POST">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Your Subject" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
+
+    <!-- Map Section -->
+    <div id="map-container">
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2804.3690740359452!2d106.87477206907202!3d-6.266784222914032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f2f0075450fb%3A0x2578a8bd556e293!2sJl.%20Bukti%20No.29%2C%20RT.11%2FRW.1%2C%20Makasar%2C%20Kec.%20Makasar%2C%20Kota%20Jakarta%20Timur%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2013570!5e0!3m2!1sen!2sid!4v1727761439206!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div id="map"></div>
 </body>
 </html>

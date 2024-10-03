@@ -1,22 +1,38 @@
+@font-face {
+    font-family: NexaBold;
+    src: url(assets/fonts/NexaBold.ttf);
+}
 
 @font-face {
     font-family: Nexa;
-    src: url(assets/fonts/NexaBold.ttf);
+    src: url(assets/fonts/Nexa.otf);
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+
+.nexa {
+    font-family: Nexa;
+}
+
+.nexa-bold {
+    font-family: NexaBold;
 }
 
 body {
-    background-color: #f9f9f9;
+    font-family: Nexa;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding:  40px 200px;
+    background-color: #f2f2f2;
 }
 
 .contact-left {
-    padding: 50px;
-    background-color: #f2f2f2;
+    flex: 1;
+    padding-right: 20px;
 }
 
 .contact-left h1 {
@@ -28,13 +44,14 @@ body {
 }
 
 .contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 20px;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .info-item i {
@@ -43,40 +60,112 @@ body {
     color: #ff5722;
 }
 
-/* Styling for the right form section */
 .contact-right {
-    padding: 50px;
-    background-color: #ffffff; /* White background for the form */
-    border-top: 5px solid #ff5722; /* Add border at the top for differentiation */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-right input,
 .contact-right textarea {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 15px;
+    margin-bottom: 30px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .contact-right button {
-    padding: 10px 20px;
+    width: 100%;
+    padding: 10px;
     background-color: #ff5722;
     color: #ffffff;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .contact-right button:hover {
     background-color: #e64a19;
 }
 
-/* Google Maps section styling */
-#map {
-    height: 400px;
-    background-color: #e0e0e0; /* Different background for the Google Maps section */
-    margin-top: 30px;
-    border-top: 5px solid #ccc; /* Border at the top for separation */
+/* Map container */
+#map-container {
+    width: 100%;
+    margin: 50px auto; /* Agar selalu terpusat */
+    padding: 0 200px; /* Padding kiri dan kanan pada layar besar */
+    box-sizing: border-box; /* Memastikan padding tidak melebihi batas */
 }
+
+#map {
+    width: 100%;
+    height: 450px;
+    border: none;
+    box-sizing: border-box;
+}
+
+/* Media queries untuk responsivitas */
+@media (max-width: 1200px) {
+    .contact-container {
+        padding: 40px 100px; /* Mengurangi padding di sekitar konten pada layar sedang */
+    }
+    #map-container {
+        padding: 0 100px; /* Mengurangi padding di kiri dan kanan */
+        margin: 50px auto; /* Pusatkan peta secara horizontal */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 40px 50px; /* Padding yang lebih kecil untuk layar lebih kecil */
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr; /* Menjadikan grid satu kolom untuk layar kecil */
+    }
+
+    .contact-right {
+        margin-top: 20px;
+    }
+
+    #map-container {
+        margin: 50px 0; /* Hilangkan margin kiri dan kanan */
+        padding: 0 20px; /* Sedikit padding agar tidak terlalu mepet di sisi layar */
+    }
+
+    #map {
+        width: 100%;
+        height: 400px; /* Sesuaikan tinggi pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 20px;
+    }
+
+    .contact-left h1 {
+        font-size: 1.8rem;
+    }
+
+    #map-container {
+        margin: 20px 0; /* Margin vertikal untuk jarak atas dan bawah */
+        padding: 0 10px; /* Padding sangat kecil untuk layar sangat kecil */
+    }
+
+    #map {
+        width: 100%;
+        height: 350px; /* Sesuaikan tinggi pada layar yang lebih kecil */
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        width: 100%; /* Pastikan input memenuhi lebar kotak */
+    }
+}
+
+
