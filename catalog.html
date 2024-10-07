@@ -22,7 +22,7 @@
     <header>
       <div class="logo-container">
         <a href="#" class="logo">
-          <img src="assets/images/logo-istana.png" alt="vroom logo" />
+          <img src="assets/images/istana.png" alt="vroom logo" />
         </a>
         <div class="header-actions">
           <span class="call-us"
@@ -81,7 +81,6 @@
             let filterValue = this.value;
             const products = document.querySelectorAll(".product");
 
-            // Sorting logic for price/rating
             let sortedProducts = Array.from(products);
             sortedProducts.sort(function (a, b) {
               let priceA = parseInt(a.getAttribute("data-price"));
@@ -98,14 +97,12 @@
               } else if (filterValue === "rating-low-high") {
                 return ratingA - ratingB;
               }
-              return 0; // Default
+              return 0;
             });
 
-            // Clear existing products
             const container = document.querySelector(".product-items");
             container.innerHTML = "";
 
-            // Append sorted products
             sortedProducts.forEach((product) => {
               container.appendChild(product);
             });
@@ -117,9 +114,9 @@
 
             products.forEach((product) => {
               if (categoryValue === "all" || product.getAttribute("data-category") === categoryValue) {
-                product.style.display = "block"; // Show product
+                product.style.display = "block";
               } else {
-                product.style.display = "none"; // Hide product
+                product.style.display = "none";
               }
             });
           });
@@ -283,7 +280,66 @@
         </div>
       </div>
     </div>
+    <!-- 
+    <div class="product-collection">
+      <div class="container">
+        <div class="product-collection-wrapper">
+          <!-- bagian kiri
+          <div class="product-col-left flex">
+            <div class="product-col-content">
+              <h2 class="sm-title">Komponen Komputer</h2>
+              <h2 class="md-title">Komputer</h2>
+              <p class="text-light">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
+              </p>
+              <button type="button" class="btn-dark">Shop Now</button>
+            </div>
+          </div>
+          <!-- bagian kanan 
+          <div class="product-col-right">
+            <div class="product-col-r-top flex">
+              <div class="product-col-content">
+                <h2 class="sm-title">Printer</h2>
+                <h2 class="md-title">Printer</h2>
+                <p class="text-light">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
+                </p>
+                <button type="button" class="btn-dark">Shop Now</button>
+              </div>
+            </div>
 
+            <div class="product-col-r-bottom">
+              <!-- bagian kiri 
+              <div class="flex">
+                <div class="product-col-content">
+                  <h2 class="sm-title">PC Server</h2>
+                  <h2 class="md-title">PC Server</h2>
+                  <p class="text-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
+                    quidem!
+                  </p>
+                  <button type="button" class="btn-dark">Shop Now</button>
+                </div>
+              </div>
+              <!-- bagian kanan
+              <div class="flex">
+                <div class="product-col-content">
+                  <h2 class="sm-title">Projector</h2>
+                  <h2 class="md-title">Projector</h2>
+                  <p class="text-light">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
+                    quidem!
+                  </p>
+                  <button type="button" class="btn-dark">Shop Now</button>
+                </div>
+              </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
     <footer>
       <div class="container-foot">
         <div class="footer-col">
