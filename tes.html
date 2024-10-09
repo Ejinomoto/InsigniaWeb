@@ -1,63 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Dynamind Landing Page</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Services</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-    .container {
-      background-color: #1f2937; /* Dark blue background */
-      color: #ffffff;
-      padding: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+body {
+    background-color: #f9f9f9;
+    line-height: 1.6;
+}
 
-    .content {
-      text-align: center;
-    }
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+}
 
-    .parallelogram {
-      width: 200px;
-      height: 100px;
-      transform: skew(-20deg); /* Angle of the parallelogram */
-      background-color: #6366f1; /* Indigo color */
-      margin: 0 auto; /* Center the parallelogram */
-    }
+.hero-text {
+    max-width: 50%;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
+.hero-text h1 {
+    font-size: 48px;
+    color: #f15a24;
+}
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
+.hero-text h1 span {
+    color: #003049;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #6366f1;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-  </style>
+.hero-text p {
+    margin: 20px 0;
+    color: #5c5c5c;
+}
+
+.cta {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cta button {
+    padding: 10px 20px;
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.contact-info {
+    margin-left: 30px;
+    color: #333;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.experience-box {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.experience-box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f15a24;
+}
+
+.experience-box span {
+    font-size: 16px;
+    color: #333;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.feature-box {
+    text-align: center;
+    max-width: 250px;
+}
+
+.feature-box i {
+    font-size: 40px;
+    color: #f15a24;
+    margin-bottom: 20px;
+}
+
+.feature-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    color: #5c5c5c;
+}
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="content">
-      <div class="parallelogram"></div>
-      <h1>Dynamind</h1>
-      <p>AI-powered knowledge exchange platform.</p>
-      <a href="#" class="btn">Get Started</a>
-    </div>
-  </div>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Providing full range <br> of <span>transportation</span></h1>
+            <p>Lorem Ipsum is simply dummy text of the k a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+            <div class="cta">
+                <button>Discover More</button>
+                <div class="contact-info">
+                    <i class="fa fa-phone"></i> Call Anytime<br>
+                    <span>808 707 6060</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="ship_image.jpg" alt="Ship Image">
+            <div class="experience-box">
+                <p>20+<br><span>Years Of Experience</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <i class="fa fa-globe"></i>
+            <h3>Experience And Expertise</h3>
+            <p>Lorem Ipsum is simply dummy text of typesetting industry. Lorem</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa fa-clock"></i>
+            <h3>Reliability And Timeliness</h3>
+            <p>Lorem Ipsum is simply dummy text of typesetting industry. Lorem</p>
+        </div>
+        <div class="feature-box">
+            <i class="fa fa-cogs"></i>
+            <h3>Comprehensive Services</h3>
+            <p>Lorem Ipsum is simply dummy text of typesetting industry. Lorem</p>
+        </div>
+    </section>
 </body>
 </html>
