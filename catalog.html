@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/catalog.css" />
     <link rel="stylesheet" href="assets/js/scripts.js" />
 
     <!-- icon dari font awesome -->
@@ -22,41 +22,44 @@
     <header>
       <div class="logo-container">
         <a href="#" class="logo">
-          <img src="assets/images/istana.png" alt="vroom logo" />
+          <img src="assets/images/logo-istana.png" alt="vroom logo" />
         </a>
         <div class="header-actions">
           <span class="call-us"
             >Call us: <br />
             Free Support (012) 800-456-789</span
           >
-          <a href="#" class="cart"><span>$23.40</span></a>
+          <a href="#" class="cart">
+            <span><i class="fa-solid fa-cart-shopping"></i></span>
+          </a>
         </div>
       </div>
       <div class="navbar-container">
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="catalog.html" class="active">Shop</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="catalog.html" class="active">SHOP</a></li>
+            <li><a href="about-us.html">ABOUT</a></li>
+            <li><a href="contact-us.html">CONTACT</a></li>
           </ul>
         </nav>
         <div class="search-bar">
           <input type="text" placeholder="Search for products..." />
         </div>
       </div>
+      <div class="title-container">
+        <h1>Our Products</h1>
+        <h3><a href="index.html" id="link">Home</a> / Shop</h3>
+      </div>
     </header>
 
     <div class="products">
       <div class="container-product">
-        <h1 class="lg-title">Our Products</h1>
-        <p class="text-light">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In debitis repellendus maxime eligendi omnis quasi neque nemo qui doloremque illo ipsa perspiciatis quo, possimus, eius magnam quidem itaque. Libero, voluptas?
-        </p>
         <div class="filters">
           <div class="filter filter-price-rating">
             <select id="filterPriceRating">
-              <option value="default">Filter by Price/Rating</option>
+              <option selected hidden>Filter by Price/Rating</option>
+              <option value="default">Default</option>
               <option value="price-low-high">Price: Low to High</option>
               <option value="price-high-low">Price: High to Low</option>
               <option value="rating-high-low">Rating: High to Low</option>
@@ -66,76 +69,37 @@
 
           <div class="filter filter-category">
             <select id="filterCategory">
-              <option value="all">Filter by Category</option>
+              <option selected hidden>Filter By Category</option>
+              <option value="all">All</option>
               <option value="laptop">Laptop</option>
               <option value="projector">Projector</option>
-              <option value="plasma">TV Plasma</option>
               <option value="pc">PC</option>
               <option value="server">Server</option>
               <option value="printer">Printer</option>
             </select>
           </div>
         </div>
-        <script>
-          document.getElementById("filterPriceRating").addEventListener("change", function () {
-            let filterValue = this.value;
-            const products = document.querySelectorAll(".product");
 
-            let sortedProducts = Array.from(products);
-            sortedProducts.sort(function (a, b) {
-              let priceA = parseInt(a.getAttribute("data-price"));
-              let priceB = parseInt(b.getAttribute("data-price"));
-              let ratingA = parseInt(a.getAttribute("data-rating"));
-              let ratingB = parseInt(b.getAttribute("data-rating"));
-
-              if (filterValue === "price-low-high") {
-                return priceA - priceB;
-              } else if (filterValue === "price-high-low") {
-                return priceB - priceA;
-              } else if (filterValue === "rating-high-low") {
-                return ratingB - ratingA;
-              } else if (filterValue === "rating-low-high") {
-                return ratingA - ratingB;
-              }
-              return 0;
-            });
-
-            const container = document.querySelector(".product-items");
-            container.innerHTML = "";
-
-            sortedProducts.forEach((product) => {
-              container.appendChild(product);
-            });
-          });
-
-          document.getElementById("filterCategory").addEventListener("change", function () {
-            let categoryValue = this.value;
-            const products = document.querySelectorAll(".product");
-
-            products.forEach((product) => {
-              if (categoryValue === "all" || product.getAttribute("data-category") === categoryValue) {
-                product.style.display = "block";
-              } else {
-                product.style.display = "none";
-              }
-            });
-          });
-        </script>
         <div class="product-items">
           <!-- satuan produk awal -->
-          <div class="product" data-price="1200000" data-rating="4" data-category="laptop">
+          <div
+            class="product"
+            data-id="1"
+            data-price="35000"
+            data-desc="Intel Core i3-3110M, 4GB DDR3, 500GB HDD, DVD±RW, GbE NIC, WiFi, Bluetooth, Fingerprint Reader, NVIDIA GeForce 705M 1GB, Camera, 14inch HD (1366x768) Anti-Glare Display."
+            data-rating="4"
+            data-category="laptop"
+            data-name="Lenovo B490"
+            data-image="assets/images/lenovo.png"
+          >
             <div class="product-content">
               <div class="product-img">
-                <img src="assets/images/rog.png" alt="product image" />
+                <img src="assets/images/lenovo.png" alt="product image" />
               </div>
               <div class="product-btns">
-                <button type="button" class="btn-cart">
-                  add to cart
-                  <span><i class="fas fa-plus"></i></span>
-                </button>
-                <button type="button" class="btn-buy">
-                  buy now
-                  <span><i class="fas fa-shopping-cart"></i></span>
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
                 </button>
               </div>
             </div>
@@ -151,31 +115,187 @@
                   <span><i class="far fa-star"></i></span>
                 </div>
               </div>
-              <a href="#" class="product-name">ROG Gaming Laptop</a>
-              <p class="product-price">Rp 50.000</p>
-              <p class="product-price">Rp 25.000</p>
-            </div>
-
-            <div class="off-info">
-              <h2 class="sm-title">50% off</h2>
+              <a href="#" class="product-name" onclick="redirectToDetail(this)">Lenovo B490</a>
+              <p class="product-price">Rp 35.000 / Day</p>
             </div>
           </div>
           <!-- satuan produk akhir -->
 
           <!-- satuan produk awal -->
-          <div class="product" data-price="11000" data-rating="4" data-category="laptop">
+          <div
+            class="product"
+            data-id="2"
+            data-price="25000"
+            data-rating="5"
+            data-desc="Intel Core i3-4030U 1.9GHz, 4GB DDR3 RAM, 500GB HDD, One Key Rescue System, 14' HD Display (1366x768)."
+            data-category="laptop"
+            data-name="Lenovo G40-70"
+            data-image="assets/images/lenovo-2.png"
+          >
             <div class="product-content">
               <div class="product-img">
-                <img src="assets/images/legion.png" alt="product image" />
+                <img src="assets/images/lenovo-2.png" alt="product image" />
               </div>
               <div class="product-btns">
-                <button type="button" class="btn-cart">
-                  add to cart
-                  <span><i class="fas fa-plus"></i></span>
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
                 </button>
-                <button type="button" class="btn-buy">
-                  buy now
-                  <span><i class="fas fa-shopping-cart"></i></span>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Laptops</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name"> Lenovo G40-70 </a>
+              <p class="product-price">Rp 25.000 / Day</p>
+            </div>
+          </div>
+          <!-- satuan produk akhir -->
+          <!-- satuan produk awal -->
+          <div
+            class="product"
+            data-id="3"
+            data-price="1000000"
+            data-rating="4"
+            data-desc="Weight 3.4 kg, Dimensions 445 x 250 x 130 mm, Resolution 4800 × 1200 dpi, Ink Droplet Size 2pl, Nozzle Count 1472."
+            data-category="printer"
+            data-name="Canon PIXMA iP2770"
+            data-image="assets/images/printer.png"
+          >
+            <div class="product-content">
+              <div class="product-img">
+                <img src="assets/images/printer.png" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Printers</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name">Canon PIXMA iP2770</a>
+              <p class="product-price">Rp 1.000.000</p>
+            </div>
+          </div>
+          <!-- satuan produk akhir -->
+          <!-- satuan produk awal -->
+          <div
+            class="product"
+            data-id="4"
+            data-price="30000"
+            data-rating="5"
+            data-desc="Intel Core i3 4th Gen Quad Core (1.7 GHz), 4GB RAM, 500GB HDD, Dual VGA (Intel HD Graphics), Windows 10 Pro, 14' Display."
+            data-category="laptop"
+            data-name="Dell Inspiron 14"
+            data-image="assets/images/dell.png"
+          >
+            <div class="product-content">
+              <div class="product-img">
+                <img src="assets/images/dell.png" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Laptops</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name"> Dell Inspiron 14 </a>
+              <p class="product-price">Rp 30.000 / Day</p>
+            </div>
+          </div>
+          <!-- satuan produk akhir -->
+          <!-- satuan produk awal -->
+          <div
+            class="product"
+            data-id="5"
+            data-price="2000000"
+            data-desc="Intel Chipset Motherboard, Intel Xeon E3-1230/1225 Processor, 16GB DDR3 RAM, 1GB VGA Card, 120GB SATA SSD, 1TB SATA HDD, ATX Casing, 500/250 Watt Power Supply."
+            data-rating="4"
+            data-category="server"
+            data-name="Server Xeon"
+            data-image="assets/images/server.png"
+          >
+            <div class="product-content">
+              <div class="product-img">
+                <img src="assets/images/server.png" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Server</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name">Server Xeon</a>
+              <p class="product-price">Rp 2.000.000</p>
+            </div>
+          </div>
+          <!-- satuan produk akhir -->
+          <!-- satuan produk awal -->
+          <div
+            class="product"
+            data-id="6"
+            data-desc="Windows 8, Intel Core i3-2328M Processor (2.20 GHz, 3M Cache), 4GB DDR3 RAM, Dedicated Graphics."
+            data-price="30000"
+            data-rating="4"
+            data-category="laptop"
+            data-name="Lenovo B480"
+            data-image="assets/images/lenovo-3.png"
+          >
+            <div class="product-content">
+              <div class="product-img">
+                <img src="assets/images/lenovo-3.png" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
                 </button>
               </div>
             </div>
@@ -191,34 +311,76 @@
                   <span><i class="far fa-star"></i></span>
                 </div>
               </div>
-              <a href="#" class="product-name">Legion Gaming Laptop</a>
-              <p class="product-price">Rp 100.000</p>
-              <p class="product-price">Rp 50.000</p>
+              <a href="#" class="product-name"> Lenovo B480 </a>
+              <p class="product-price">Rp 30.000 / Day</p>
+            </div>
+          </div>
+          <!-- satuan produk akhir -->
+          <!-- satuan produk awal -->
+          <div
+            class="product"
+            data-id="7"
+            data-desc="Gaming PC, AMD Ryzen 5 7600 3.8GHz, GeForce RTX 4060 8GB, 16GB DDR5, 500GB NVMe SSD, Wi-Fi Ready & Windows 11 Home"
+            data-price="1500000"
+            data-rating="4"
+            data-category="pc"
+            data-name="Personal Computer"
+            data-image="assets/images/pc1.png"
+          >
+            <div class="product-content">
+              <div class="product-img">
+                <img src="assets/images/pc1.png" alt="product image" />
+              </div>
+              <div class="product-btns">
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
+                </button>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-info-top">
+                <h2 class="sm-title">Computer</h2>
+                <div class="rating">
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="fas fa-star"></i></span>
+                  <span><i class="far fa-star"></i></span>
+                </div>
+              </div>
+              <a href="#" class="product-name">Personal Computer</a>
+              <p class="product-price">Rp 1.500.000</p>
             </div>
           </div>
           <!-- satuan produk akhir -->
 
           <!-- satuan produk awal -->
-          <div class="product">
+          <div
+            class="product"
+            data-id="8"
+            data-price="5300000"
+            data-rating="4"
+            data-desc="Brightness 3300 ANSI Lumens, Resolution XGA (1024 x 768), Contrast Ratio 15,000:1, Zoom Ratio 1 – 1.35 (Digital Zoom), Lamp Life 6,000 H / 12,000 H, Keystone Correction."
+            data-name="Epson EB-E500"
+            data-image="assets/images/projector.png"
+          >
             <div class="product-content">
               <div class="product-img">
-                <img src="assets/images/nitro.png" alt="product image" />
+                <img src="assets/images/projector.png" alt="product image" />
               </div>
               <div class="product-btns">
-                <button type="button" class="btn-cart">
-                  add to cart
-                  <span><i class="fas fa-plus"></i></span>
-                </button>
-                <button type="button" class="btn-buy">
-                  buy now
-                  <span><i class="fas fa-shopping-cart"></i></span>
+                <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
+                  <span><i class="fas fa-magnifying-glass"></i></span>
+                  View Details
                 </button>
               </div>
             </div>
 
             <div class="product-info">
               <div class="product-info-top">
-                <h2 class="sm-title">Laptops</h2>
+                <h2 class="sm-title">Projector</h2>
                 <div class="rating">
                   <span><i class="fas fa-star"></i></span>
                   <span><i class="fas fa-star"></i></span>
@@ -227,53 +389,8 @@
                   <span><i class="far fa-star"></i></span>
                 </div>
               </div>
-              <a href="#" class="product-name">Acer Nitro Gaming Laptop</a>
-              <p class="product-price">Rp 50.000</p>
-              <p class="product-price">Rp 25.000</p>
-            </div>
-
-            <div class="off-info">
-              <h2 class="sm-title">50% off</h2>
-            </div>
-          </div>
-          <!-- satuan produk akhir -->
-
-          <!-- satuan produk awal -->
-          <div class="product">
-            <div class="product-content">
-              <div class="product-img">
-                <img src="assets/images/msi.png" alt="product image" />
-              </div>
-              <div class="product-btns">
-                <button type="button" class="btn-cart">
-                  add to cart
-                  <span><i class="fas fa-plus"></i></span>
-                </button>
-                <button type="button" class="btn-buy">
-                  buy now
-                  <span><i class="fas fa-shopping-cart"></i></span>
-                </button>
-              </div>
-            </div>
-
-            <div class="product-info">
-              <div class="product-info-top">
-                <h2 class="sm-title">Laptops</h2>
-                <div class="rating">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="far fa-star"></i></span>
-                </div>
-              </div>
-              <a href="#" class="product-name">MSI Gaming Laptop</a>
-              <p class="product-price">Rp 50.000</p>
-              <p class="product-price">Rp 25.000</p>
-            </div>
-
-            <div class="off-info">
-              <h2 class="sm-title">50% off</h2>
+              <a href="#" class="product-name">Epson EB-E500</a>
+              <p class="product-price">Rp 5.300.000</p>
             </div>
           </div>
           <!-- satuan produk akhir -->
@@ -340,8 +457,26 @@
       </div>
     </div>
     -->
+    <script>
+      function redirectToDetail(element) {
+        const product = element.closest(".product");
+        const productData = {
+          id: product.getAttribute("data-id"),
+          desc: product.getAttribute("data-desc"),
+          name: product.getAttribute("data-name"),
+          price: product.getAttribute("data-price"),
+          rating: product.getAttribute("data-rating"),
+          image: product.getAttribute("data-image"),
+        };
+
+        localStorage.setItem("selectedProduct", JSON.stringify(productData));
+
+        window.location.href = "product-detail.html";
+      }
+    </script>
+    <script src="assets/js/scripts.js"></script>
     <footer>
-      <div class="container-foot">
+      <div class="footer-container">
         <div class="footer-col">
           <h4>About Us</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
