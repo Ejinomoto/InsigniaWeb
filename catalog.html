@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
-    <link rel="stylesheet" href="assets/css/catalog.css" />
+    <link rel="stylesheet" href="assets/css/style-shop.css" />
     <link rel="stylesheet" href="assets/js/scripts.js" />
 
     <!-- icon dari font awesome -->
@@ -85,7 +85,7 @@
           <div
             class="product"
             data-id="1"
-            data-price="35000"
+            data-price="Rp 35.000 / Day"
             data-desc="Intel Core i3-3110M, 4GB DDR3, 500GB HDD, DVD±RW, GbE NIC, WiFi, Bluetooth, Fingerprint Reader, NVIDIA GeForce 705M 1GB, Camera, 14inch HD (1366x768) Anti-Glare Display."
             data-rating="4"
             data-category="laptop"
@@ -125,7 +125,7 @@
           <div
             class="product"
             data-id="2"
-            data-price="25000"
+            data-price="Rp 25.000 / Day"
             data-rating="5"
             data-desc="Intel Core i3-4030U 1.9GHz, 4GB DDR3 RAM, 500GB HDD, One Key Rescue System, 14' HD Display (1366x768)."
             data-category="laptop"
@@ -164,7 +164,7 @@
           <div
             class="product"
             data-id="3"
-            data-price="1000000"
+            data-price="Rp 1.000.000"
             data-rating="4"
             data-desc="Weight 3.4 kg, Dimensions 445 x 250 x 130 mm, Resolution 4800 × 1200 dpi, Ink Droplet Size 2pl, Nozzle Count 1472."
             data-category="printer"
@@ -203,7 +203,7 @@
           <div
             class="product"
             data-id="4"
-            data-price="30000"
+            data-price="Rp 30.000 / Day"
             data-rating="5"
             data-desc="Intel Core i3 4th Gen Quad Core (1.7 GHz), 4GB RAM, 500GB HDD, Dual VGA (Intel HD Graphics), Windows 10 Pro, 14' Display."
             data-category="laptop"
@@ -242,16 +242,16 @@
           <div
             class="product"
             data-id="5"
-            data-price="2000000"
+            data-price="Rp 2.000.000"
             data-desc="Intel Chipset Motherboard, Intel Xeon E3-1230/1225 Processor, 16GB DDR3 RAM, 1GB VGA Card, 120GB SATA SSD, 1TB SATA HDD, ATX Casing, 500/250 Watt Power Supply."
             data-rating="4"
             data-category="server"
             data-name="Server Xeon"
-            data-image="assets/images/server.png"
+            data-image="assets/images/server-1.png"
           >
             <div class="product-content">
               <div class="product-img">
-                <img src="assets/images/server.png" alt="product image" />
+                <img src="assets/images/server-1.png" alt="product image" />
               </div>
               <div class="product-btns">
                 <button type="button" class="btn-buy" onclick="redirectToDetail(this)">
@@ -282,7 +282,7 @@
             class="product"
             data-id="6"
             data-desc="Windows 8, Intel Core i3-2328M Processor (2.20 GHz, 3M Cache), 4GB DDR3 RAM, Dedicated Graphics."
-            data-price="30000"
+            data-price="Rp 30.000 / Day"
             data-rating="4"
             data-category="laptop"
             data-name="Lenovo B480"
@@ -321,7 +321,7 @@
             class="product"
             data-id="7"
             data-desc="Gaming PC, AMD Ryzen 5 7600 3.8GHz, GeForce RTX 4060 8GB, 16GB DDR5, 500GB NVMe SSD, Wi-Fi Ready & Windows 11 Home"
-            data-price="1500000"
+            data-price="Rp 1.500.000"
             data-rating="4"
             data-category="pc"
             data-name="Personal Computer"
@@ -360,8 +360,9 @@
           <div
             class="product"
             data-id="8"
-            data-price="5300000"
+            data-price="Rp 5.300.000"
             data-rating="4"
+            data-category="projector"
             data-desc="Brightness 3300 ANSI Lumens, Resolution XGA (1024 x 768), Contrast Ratio 15,000:1, Zoom Ratio 1 – 1.35 (Digital Zoom), Lamp Life 6,000 H / 12,000 H, Keystone Correction."
             data-name="Epson EB-E500"
             data-image="assets/images/projector.png"
@@ -397,66 +398,6 @@
         </div>
       </div>
     </div>
-    <!-- 
-    <div class="product-collection">
-      <div class="container">
-        <div class="product-collection-wrapper">
-          <!-- bagian kiri
-          <div class="product-col-left flex">
-            <div class="product-col-content">
-              <h2 class="sm-title">Komponen Komputer</h2>
-              <h2 class="md-title">Komputer</h2>
-              <p class="text-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
-              </p>
-              <button type="button" class="btn-dark">Shop Now</button>
-            </div>
-          </div>
-          <!-- bagian kanan 
-          <div class="product-col-right">
-            <div class="product-col-r-top flex">
-              <div class="product-col-content">
-                <h2 class="sm-title">Printer</h2>
-                <h2 class="md-title">Printer</h2>
-                <p class="text-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
-                </p>
-                <button type="button" class="btn-dark">Shop Now</button>
-              </div>
-            </div>
-
-            <div class="product-col-r-bottom">
-              <!-- bagian kiri 
-              <div class="flex">
-                <div class="product-col-content">
-                  <h2 class="sm-title">PC Server</h2>
-                  <h2 class="md-title">PC Server</h2>
-                  <p class="text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
-                    quidem!
-                  </p>
-                  <button type="button" class="btn-dark">Shop Now</button>
-                </div>
-              </div>
-              <!-- bagian kanan
-              <div class="flex">
-                <div class="product-col-content">
-                  <h2 class="sm-title">Projector</h2>
-                  <h2 class="md-title">Projector</h2>
-                  <p class="text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
-                    quidem!
-                  </p>
-                  <button type="button" class="btn-dark">Shop Now</button>
-                </div>
-              </div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
     <script>
       function redirectToDetail(element) {
         const product = element.closest(".product");
@@ -478,21 +419,33 @@
     <footer>
       <div class="footer-container">
         <div class="footer-col">
+          <img src="assets/images/logo-istana-plain.png" alt="" />
+        </div>
+        <div class="footer-col">
           <h4>About Us</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+          <p>Istana Komputer bergerak di bidang IT & Multimedia. Menyewakan perangkat untuk keperluan berbagai acara seperti seminar, pameran, meeting dan lain sebagainya. Melayani sewa harian, bulanan dan tahunan.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Menus</h4>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Shop</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+          <li><a href="about-us.html">About</a></li>
         </div>
         <div class="footer-col">
           <h4>Get in Touch</h4>
-          <p>Phone: (012) 800-456-789</p>
-          <p>Email: [info@vroom.com](mailto:info@vroom.com)</p>
-          <p>Address: 123 Main St, Anytown, USA 12345</p>
+          <p>Phone: 0812-1084-6420</p>
+          <p>Email: iskomsarananusantara@gmail.com</p>
+          <p>Address: Jl.Bukti No 29 B , Kp. Makasar , Jaktim, DKI Jakarta.</p>
         </div>
         <div class="footer-col">
           <h4>Follow Us</h4>
           <ul>
-            <li><a href="#" class="facebook"></a></li>
-            <li><a href="#" class="twitter"></a></li>
-            <li><a href="#" class="instagram"></a></li>
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100063576776044"><i class="fa-brands fa-facebook"></i></a>
+
+            <a target="_blank" href="https://www.instagram.com/istana_komputer/"><i class="fa-brands fa-instagram"></i></a>
+
+            <a target="_blank" href="https://x.com/komputeristana"><i class="fa-brands fa-twitter"></i></a>
           </ul>
         </div>
       </div>
