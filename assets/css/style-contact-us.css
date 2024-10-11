@@ -168,7 +168,7 @@ nav a.active:hover::after {
     justify-content: space-between;
     align-items: flex-start;
     padding: 40px 200px;
-    background-color: #F5F5F5; /* Very light background for container */
+    background-color: #F5F5F5;
 }
 
 .contact-left {
@@ -178,11 +178,11 @@ nav a.active:hover::after {
 
 .contact-left h1 {
     font-size: 2.5rem;
-    color: #06141B; /* Dark text color */
+    color: #06141B;
 }
 
 .contact-left span {
-    color: #e32a2ae2; /* Accent text color */
+    color: #e32a2ae2;
 }
 
 .contact-info {
@@ -199,12 +199,12 @@ nav a.active:hover::after {
 .info-item i {
     font-size: 1.5rem;
     margin-right: 15px;
-    color: #06141B; /* Dark icon color */
+    color: #06141B;
 }
 
 .contact-right {
     flex: 1;
-    background-color: #FFFFFF; /* White background for form */
+    background-color: #FFFFFF;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -215,17 +215,17 @@ nav a.active:hover::after {
     width: 100%;
     margin-bottom: 30px;
     padding: 12px;
-    border: 1px solid #9BA8AB; /* Light grey border */
+    border: 1px solid #9BA8AB;
     border-radius: 10px;
     box-sizing: border-box;
-    background-color: #F5F5F5; /* Light form background */
-    color: #06141B; /* Dark text inside input */
+    background-color: #F5F5F5;
+    color: #06141B;
 }
 
 .contact-right button {
     width: 100%;
     padding: 10px;
-    background-color: #253745; /* Dark button */
+    background-color: #253745;
     color: #FFFFFF;
     border: none;
     cursor: pointer;
@@ -233,7 +233,7 @@ nav a.active:hover::after {
 }
 
 .contact-right button:hover {
-    background-color: #06141B; /* Darker button hover */
+    background-color: #06141B;
 }
 
 /* Map styling */
@@ -250,12 +250,12 @@ nav a.active:hover::after {
     border: none;
     box-sizing: border-box;
     border-radius: 40px;
-    background-color: #CCD0CF; /* Light grey background for map */
+    background-color: #CCD0CF;
 }
 
 #email, #link {
     font-weight: bold;
-    color: #e32a2ae2; /* Dark grey for links */
+    color: #e32a2ae2;
     text-decoration: none;
 }
 
