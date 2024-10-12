@@ -59,9 +59,10 @@
       <div class="container-p-detail">
         <div class="product-div">
           <div class="product-div-left">
-            <div class="img-product-container">
+            <div class="img-product-container img-container">
               <img id="product-image" src="" alt="product image" />
             </div>
+            <div class="hover-container" id="gallery-container"></div>
           </div>
           <div class="product-div-right">
             <span id="product-name" class="product-nama" style="color: #1d293f"></span>
@@ -80,7 +81,6 @@
         const productData = JSON.parse(localStorage.getItem("selectedProduct"));
 
         if (productData) {
-          const formattedPrice = parseInt(productData.price).toLocaleString("id-ID");
           document.getElementById("product-name").textContent = productData.name;
           document.getElementById("product-desc").textContent = productData.desc;
           document.getElementById("product-price").textContent = productData.price;
@@ -94,6 +94,43 @@
             ratingHtml += '<span class="far fa-star"></span>';
           }
           document.getElementById("product-rating").innerHTML = ratingHtml;
+
+          const galleryContainer = document.getElementById("gallery-container");
+          if (productData.gallery && productData.gallery.length > 0) {
+            productData.gallery.forEach((imageSrc, index) => {
+              const divElement = document.createElement("div");
+              const imgElement = document.createElement("img");
+
+              imgElement.src = imageSrc;
+              imgElement.alt = `product gallery image ${index + 1}`;
+              imgElement.classList.add("gallery-image");
+
+              divElement.appendChild(imgElement);
+
+              galleryContainer.appendChild(divElement);
+            });
+
+            const allHoverImages = document.querySelectorAll(".hover-container div img");
+            const imgContainer = document.querySelector(".img-product-container");
+
+            allHoverImages[0].parentElement.classList.add("active");
+
+            allHoverImages.forEach((image) => {
+              image.addEventListener("mouseover", () => {
+                imgContainer.querySelector("img").src = image.src;
+
+                resetActiveImg();
+
+                image.parentElement.classList.add("active");
+              });
+            });
+
+            function resetActiveImg() {
+              allHoverImages.forEach((img) => {
+                img.parentElement.classList.remove("active");
+              });
+            }
+          }
         }
       });
     </script>
