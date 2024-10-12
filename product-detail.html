@@ -66,6 +66,7 @@
           </div>
           <div class="product-div-right">
             <span id="product-name" class="product-nama" style="color: #1d293f"></span>
+            <span id="product-original" class="product-disc" style="color: #e32a2ae2; text-decoration: line-through; margin-bottom: 10px"></span>
             <span id="product-price" class="product-harga" style="color: #1d293f"></span>
             <div id="product-rating" class="product-rate" style="color: #1d293f"></div>
             <p class="product-desc" style="color: #1d293f" id="product-desc"></p>
@@ -83,6 +84,7 @@
         if (productData) {
           document.getElementById("product-name").textContent = productData.name;
           document.getElementById("product-desc").textContent = productData.desc;
+          document.getElementById("product-original").textContent = productData.original;
           document.getElementById("product-price").textContent = productData.price;
           document.getElementById("product-image").src = productData.image;
 
