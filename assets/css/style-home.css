@@ -651,6 +651,13 @@ nav a.active:hover::after {
   margin-left: 20px;
 }
 
+.comment-container h5 {
+  font-size: 16px;
+  margin-top: 0;
+  color: #e32a2ae2;
+  margin-left: 20px;
+}
+
 .testimonial {
   margin: 20px;
   padding: 20px;
@@ -1141,7 +1148,7 @@ img {
   background: black;
   color: white;
   outline: 0;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 0.7rem 1rem;
   border: 0;
   margin-top: 1rem;
