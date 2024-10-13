@@ -1,0 +1,729 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --white-light: rgba(255, 255, 255, 0.5);
+  --alice-blue: #f8f9fa;
+  --carribean-green: #40c9a2;
+  --gray: #ededed;
+}
+
+@font-face {
+  font-family: NexaBold;
+  src: url(../fonts/NexaBold.ttf);
+}
+
+@font-face {
+  font-family: Nexa;
+  src: url(../fonts/Nexa.otf);
+}
+
+.nexa {
+  font-family: Nexa;
+}
+
+.nexa-bold {
+  font-family: NexaBold;
+}
+
+body {
+  font-family: Nexa;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-image: linear-gradient(
+      323deg,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 16.667%,
+      rgba(46, 46, 46, 0.01) 16.667%,
+      rgba(46, 46, 46, 0.01) 33.334%,
+      rgba(226, 226, 226, 0.01) 33.334%,
+      rgba(226, 226, 226, 0.01) 50.001000000000005%,
+      rgba(159, 159, 159, 0.01) 50.001%,
+      rgba(159, 159, 159, 0.01) 66.668%,
+      rgba(149, 149, 149, 0.01) 66.668%,
+      rgba(149, 149, 149, 0.01) 83.33500000000001%,
+      rgba(43, 43, 43, 0.01) 83.335%,
+      rgba(43, 43, 43, 0.01) 100.002%
+    ),
+    linear-gradient(
+      346deg,
+      rgba(166, 166, 166, 0.03) 0%,
+      rgba(166, 166, 166, 0.03) 25%,
+      rgba(240, 240, 240, 0.03) 25%,
+      rgba(240, 240, 240, 0.03) 50%,
+      rgba(121, 121, 121, 0.03) 50%,
+      rgba(121, 121, 121, 0.03) 75%,
+      rgba(40, 40, 40, 0.03) 75%,
+      rgba(40, 40, 40, 0.03) 100%
+    ),
+    linear-gradient(
+      347deg,
+      rgba(209, 209, 209, 0.01) 0%,
+      rgba(209, 209, 209, 0.01) 25%,
+      rgba(22, 22, 22, 0.01) 25%,
+      rgba(22, 22, 22, 0.01) 50%,
+      rgba(125, 125, 125, 0.01) 50%,
+      rgba(125, 125, 125, 0.01) 75%,
+      rgba(205, 205, 205, 0.01) 75%,
+      rgba(205, 205, 205, 0.01) 100%
+    ),
+    linear-gradient(
+      84deg,
+      rgba(195, 195, 195, 0.01) 0%,
+      rgba(195, 195, 195, 0.01) 14.286%,
+      rgba(64, 64, 64, 0.01) 14.286%,
+      rgba(64, 64, 64, 0.01) 28.572%,
+      rgba(67, 67, 67, 0.01) 28.572%,
+      rgba(67, 67, 67, 0.01) 42.858%,
+      rgba(214, 214, 214, 0.01) 42.858%,
+      rgba(214, 214, 214, 0.01) 57.144%,
+      rgba(45, 45, 45, 0.01) 57.144%,
+      rgba(45, 45, 45, 0.01) 71.42999999999999%,
+      rgba(47, 47, 47, 0.01) 71.43%,
+      rgba(47, 47, 47, 0.01) 85.71600000000001%,
+      rgba(172, 172, 172, 0.01) 85.716%,
+      rgba(172, 172, 172, 0.01) 100.002%
+    ),
+    linear-gradient(
+      73deg,
+      rgba(111, 111, 111, 0.03) 0%,
+      rgba(111, 111, 111, 0.03) 16.667%,
+      rgba(202, 202, 202, 0.03) 16.667%,
+      rgba(202, 202, 202, 0.03) 33.334%,
+      rgba(57, 57, 57, 0.03) 33.334%,
+      rgba(57, 57, 57, 0.03) 50.001000000000005%,
+      rgba(197, 197, 197, 0.03) 50.001%,
+      rgba(197, 197, 197, 0.03) 66.668%,
+      rgba(97, 97, 97, 0.03) 66.668%,
+      rgba(97, 97, 97, 0.03) 83.33500000000001%,
+      rgba(56, 56, 56, 0.03) 83.335%,
+      rgba(56, 56, 56, 0.03) 100.002%
+    ),
+    linear-gradient(
+      132deg,
+      rgba(88, 88, 88, 0.03) 0%,
+      rgba(88, 88, 88, 0.03) 20%,
+      rgba(249, 249, 249, 0.03) 20%,
+      rgba(249, 249, 249, 0.03) 40%,
+      rgba(2, 2, 2, 0.03) 40%,
+      rgba(2, 2, 2, 0.03) 60%,
+      rgba(185, 185, 185, 0.03) 60%,
+      rgba(185, 185, 185, 0.03) 80%,
+      rgba(196, 196, 196, 0.03) 80%,
+      rgba(196, 196, 196, 0.03) 100%
+    ),
+    linear-gradient(
+      142deg,
+      rgba(160, 160, 160, 0.03) 0%,
+      rgba(160, 160, 160, 0.03) 12.5%,
+      rgba(204, 204, 204, 0.03) 12.5%,
+      rgba(204, 204, 204, 0.03) 25%,
+      rgba(108, 108, 108, 0.03) 25%,
+      rgba(108, 108, 108, 0.03) 37.5%,
+      rgba(191, 191, 191, 0.03) 37.5%,
+      rgba(191, 191, 191, 0.03) 50%,
+      rgba(231, 231, 231, 0.03) 50%,
+      rgba(231, 231, 231, 0.03) 62.5%,
+      rgba(70, 70, 70, 0.03) 62.5%,
+      rgba(70, 70, 70, 0.03) 75%,
+      rgba(166, 166, 166, 0.03) 75%,
+      rgba(166, 166, 166, 0.03) 87.5%,
+      rgba(199, 199, 199, 0.03) 87.5%,
+      rgba(199, 199, 199, 0.03) 100%
+    ),
+    linear-gradient(
+      238deg,
+      rgba(116, 116, 116, 0.02) 0%,
+      rgba(116, 116, 116, 0.02) 20%,
+      rgba(141, 141, 141, 0.02) 20%,
+      rgba(141, 141, 141, 0.02) 40%,
+      rgba(152, 152, 152, 0.02) 40%,
+      rgba(152, 152, 152, 0.02) 60%,
+      rgba(61, 61, 61, 0.02) 60%,
+      rgba(61, 61, 61, 0.02) 80%,
+      rgba(139, 139, 139, 0.02) 80%,
+      rgba(139, 139, 139, 0.02) 100%
+    ),
+    linear-gradient(
+      188deg,
+      rgba(227, 227, 227, 0.01) 0%,
+      rgba(227, 227, 227, 0.01) 20%,
+      rgba(105, 105, 105, 0.01) 20%,
+      rgba(105, 105, 105, 0.01) 40%,
+      rgba(72, 72, 72, 0.01) 40%,
+      rgba(72, 72, 72, 0.01) 60%,
+      rgba(33, 33, 33, 0.01) 60%,
+      rgba(33, 33, 33, 0.01) 80%,
+      rgba(57, 57, 57, 0.01) 80%,
+      rgba(57, 57, 57, 0.01) 100%
+    ),
+    linear-gradient(90deg, rgb(6, 20, 27), rgb(6, 20, 27));
+  padding: 20px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: black;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+  transform: scale(1.05);
+  color: #e32a2ae2;
+  padding: 10px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 0;
+  height: 3px;
+  background-color: #e32a2ae2;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+  left: 14.5%;
+  width: 55%;
+}
+
+nav a.active {
+  color: #e32a2ae2;
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 14.5%;
+  width: 55%;
+  height: 3px;
+  background-color: #e32a2ae2;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+nav a.active:hover::after {
+  width: 80%;
+}
+
+footer {
+  background-color: #1d293f;
+  padding: 10px 0;
+  color: #fff;
+  margin: 0;
+}
+
+.footer-col img {
+  max-width: 50px;
+}
+
+.footer-col p {
+  max-width: 695px;
+}
+
+.footer-col {
+  margin: 20px;
+}
+
+.footer-col h4 {
+  color: #ffbb00;
+  margin-top: 0;
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col li {
+  margin-right: 20px;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.footer-col li:hover {
+  transform: scale(1.05);
+  font-weight: bold;
+}
+
+.footer-col i {
+  font-size: 20px;
+  margin-right: 5.5px;
+}
+
+.footer-col i:hover {
+  font-weight: bold;
+  transform: scale(1.05);
+}
+
+.footer-col a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-container {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.call-us {
+  color: white;
+  font-size: 14px;
+}
+
+.cart {
+  background-color: #f1c40f;
+  padding: 10px 20px;
+  border-radius: 40px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.cart span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 145px;
+}
+
+.logo img {
+  max-width: 150px;
+  height: auto;
+}
+
+.navbar-container {
+  background-color: white;
+  padding: 5px 25px;
+  border-radius: 40px;
+  width: 85%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  width: 250px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+} */
+img {
+  width: 100%;
+  display: block;
+}
+
+.custom-btn {
+  width: 130px;
+  margin-top: 20px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.btn-3 {
+  background: rgb(255, 27, 0);
+  background: linear-gradient(0deg, rgba(255, 27, 0, 1) 0%, rgba(251, 75, 2, 1) 100%);
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: #f0094a;
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover {
+  background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover {
+  color: #f0094a;
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: #f0094a;
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
+}
+
+.main-wrapper {
+  background-color: white;
+  margin-left: 125px;
+  margin-right: 125px;
+  border-radius: 20px;
+  padding-bottom: 50px;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.container-p-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.title-container {
+  color: white;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  text-align: center;
+}
+
+#email,
+#link {
+  font-weight: bold;
+  color: #e32a2ae2;
+  text-decoration: none;
+}
+
+#email:hover,
+#link:hover {
+  font-weight: bold;
+  color: #e32a2ae2;
+  text-decoration: underline;
+}
+
+.product-div {
+  margin: 1rem 0;
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: white;
+  border-radius: 3px;
+  column-gap: 10px;
+}
+
+.product-div-left {
+  padding: 20px;
+}
+
+.product-div-right {
+  padding: 20px;
+}
+
+.img-product-container img {
+  width: 350px;
+  margin: 0 auto;
+}
+
+.hover-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.hover-container div {
+  border: 2px solid rgb(252, 160, 175, 0.7);
+  padding: 1rem;
+  border-radius: 3px;
+  margin: 0 4px 8px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  border-color: rgb(255, 145, 163) !important;
+}
+
+.hover-container div:hover {
+  border-color: rgb(255, 145, 163) !important;
+}
+
+.hover-container div img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.product-div-right span {
+  display: block;
+}
+
+.product-nama {
+  font-size: 35px;
+  margin-bottom: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.product-harga {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.product-disc {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.product-rate {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.product-rate span {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid black;
+  padding: 0.8rem 0;
+  margin: 5px;
+  width: 80px;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  transition: all 0.6s ease;
+}
+
+.back-btn {
+  background-color: white;
+}
+
+.back-btn:hover {
+  background: rgb(110, 110, 110);
+  color: white;
+}
+
+.product-desc {
+  font-weight: 18px;
+  line-height: 1.6;
+  font-size: 19px;
+  margin-bottom: 20px;
+  font-weight: 300;
+  opacity: 0.9;
+  margin-top: 22px;
+}
+
+.btn-groups {
+  margin-top: 22px;
+}
+
+.btn-groups button {
+  display: inline-block;
+  font-size: 16px;
+  font-family: inherit;
+  text-transform: uppercase;
+  padding: 15px 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-groups button .fas {
+  margin-right: 8px;
+}
+
+.add-cart-btn {
+  background-color: rgb(60, 60, 60);
+  border: 2px solid rgb(60, 60, 60);
+  margin-right: 8px;
+}
+
+.add-cart-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.buy-now-btn {
+  background-color: black;
+  border: 2px solid black;
+}
+.buy-now-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+.button-48 {
+  border-radius: 20px;
+  appearance: none;
+  background-color: #ffffff;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1), background-color 100ms cubic-bezier(0.694, 0, 0.335, 1), color 100ms cubic-bezier(0.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-48:before {
+  border-radius: 20px 0px 0px 0px;
+  animation: opacityFallbackOut 0.5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #ebebeb;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-48:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-48:after {
+  background-color: #ffffff;
+}
+
+.button-48 h3 {
+  z-index: 1;
+  font-weight: bold;
+  position: relative;
+}

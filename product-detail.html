@@ -3,70 +3,173 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Page - Sparepart Computer & Electronics</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="assets/css/style-product.css" />
+    <!-- icon dari font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- icon dari font awesome -->
   </head>
+
   <body>
     <header>
       <div class="logo-container">
         <a href="#" class="logo">
-          <img src="assets/img/logo.png" alt="vroom logo" />
+          <img src="assets/images/logo-istana.png" alt="vroom logo" />
         </a>
         <div class="header-actions">
           <span class="call-us"
             >Call us: <br />
             Free Support (012) 800-456-789</span
           >
-          <a href="#" class="cart"><span>$23.40</span></a>
+          <a href="#" class="cart">
+            <span><i class="fa-solid fa-cart-shopping"></i></span>
+          </a>
         </div>
       </div>
       <div class="navbar-container">
         <nav>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Our Products</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="#" class="active">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </nav>
+        <div class="search-bar">
+          <input type="text" placeholder="Search for products..." />
+        </div>
+      </div>
+      <div class="title-container">
+        <h1>Product Detail</h1>
+        <h3><a href="index.html" id="link">Home</a> / Shop</h3>
       </div>
     </header>
-
-    <main>
-      <div class="product-detail">
-        <div class="product-image">
-          <img src="" alt="Gambar Produk" />
-        </div>
-        <div class="product-info">
-          <h2>Nama Produk</h2>
-          <p class="price">Harga: Rp 500.000</p>
-          <p class="description">Deskripsi lengkap tentang produk. Ini mencakup informasi mengenai spesifikasi, kegunaan, dan fitur-fitur produk.</p>
-          <button class="buy-btn">Beli Sekarang</button>
+    <div class="main-wrapper">
+      <a href="catalog.html">
+        <button class="custom-btn btn-3">
+          <span><i class="fa-solid fa-caret-left"></i> Back</span>
+        </button>
+      </a>
+      <div class="container-p-detail">
+        <div class="product-div">
+          <div class="product-div-left">
+            <div class="img-product-container img-container">
+              <img id="product-image" src="" alt="product image" />
+            </div>
+            <div class="hover-container" id="gallery-container"></div>
+          </div>
+          <div class="product-div-right">
+            <span id="product-name" class="product-nama" style="color: #1d293f"></span>
+            <span id="product-original" class="product-disc" style="color: #e32a2ae2; text-decoration: line-through; margin-bottom: 10px"></span>
+            <span id="product-price" class="product-harga" style="color: #1d293f"></span>
+            <div id="product-rating" class="product-rate" style="color: #1d293f"></div>
+            <p class="product-desc" style="color: #1d293f" id="product-desc"></p>
+            <div type="button" class="btn-groups">
+              <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const productData = JSON.parse(localStorage.getItem("selectedProduct"));
 
-      <section class="reviews">
-        <h3>Ulasan Produk</h3>
-        <div class="review">
-          <h4>Nama Pengguna</h4>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>Ulasan tentang produk ini. Sangat memuaskan!</p>
-        </div>
-        <div class="review">
-          <h4>Nama Pengguna Lain</h4>
-          <p>⭐⭐⭐⭐</p>
-          <p>Ulasan yang menunjukkan pengalaman pengguna dengan produk ini.</p>
-        </div>
-        <form class="review-form">
-          <h4>Tulis Ulasan Anda:</h4>
-          <input type="text" placeholder="Nama Anda" required />
-          <textarea placeholder="Ulasan Anda" required></textarea>
-          <button type="submit">Kirim Ulasan</button>
-        </form>
-      </section>
-    </main>
+        if (productData) {
+          document.getElementById("product-name").textContent = productData.name;
+          document.getElementById("product-desc").textContent = productData.desc;
+          document.getElementById("product-original").textContent = productData.original;
+          document.getElementById("product-price").textContent = productData.price;
+          document.getElementById("product-image").src = productData.image;
 
+          let ratingHtml = "";
+          for (let i = 0; i < Math.floor(productData.rating); i++) {
+            ratingHtml += '<span class="fas fa-star"></span>';
+          }
+          for (let i = 0; i < 5 - Math.floor(productData.rating); i++) {
+            ratingHtml += '<span class="far fa-star"></span>';
+          }
+          document.getElementById("product-rating").innerHTML = ratingHtml;
+
+          const galleryContainer = document.getElementById("gallery-container");
+          if (productData.gallery && productData.gallery.length > 0) {
+            productData.gallery.forEach((imageSrc, index) => {
+              const divElement = document.createElement("div");
+              const imgElement = document.createElement("img");
+
+              imgElement.src = imageSrc;
+              imgElement.alt = `product gallery image ${index + 1}`;
+              imgElement.classList.add("gallery-image");
+
+              divElement.appendChild(imgElement);
+
+              galleryContainer.appendChild(divElement);
+            });
+
+            const allHoverImages = document.querySelectorAll(".hover-container div img");
+            const imgContainer = document.querySelector(".img-product-container");
+
+            allHoverImages[0].parentElement.classList.add("active");
+
+            allHoverImages.forEach((image) => {
+              image.addEventListener("mouseover", () => {
+                imgContainer.querySelector("img").src = image.src;
+
+                resetActiveImg();
+
+                image.parentElement.classList.add("active");
+              });
+            });
+
+            function resetActiveImg() {
+              allHoverImages.forEach((img) => {
+                img.parentElement.classList.remove("active");
+              });
+            }
+          }
+        }
+      });
+    </script>
     <footer>
-      <p>&copy; 2024 Toko Sparepart Komputer & Elektronik. All Rights Reserved.</p>
+      <div class="footer-container">
+        <div class="footer-col">
+          <img src="assets/images/logo-istana-plain.png" alt="" />
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <p>Istana Komputer bergerak di bidang IT & Multimedia. Menyewakan perangkat untuk keperluan berbagai acara seperti seminar, pameran, meeting dan lain sebagainya. Melayani sewa harian, bulanan dan tahunan.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Menus</h4>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Shop</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p>Phone: 0812-1084-6420</p>
+          <p>Email: iskomsarananusantara@gmail.com</p>
+          <p>Address: Jl.Bukti No 29 B , Kp. Makasar , Jaktim, DKI Jakarta.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <ul>
+            <a target="_blank" href="https://www.facebook.com/profile.php?id=100063576776044"><i class="fa-brands fa-facebook"></i></a>
+
+            <a target="_blank" href="https://www.instagram.com/istana_komputer/"><i class="fa-brands fa-instagram"></i></a>
+
+            <a target="_blank" href="https://x.com/komputeristana"><i class="fa-brands fa-twitter"></i></a>
+          </ul>
+        </div>
+      </div>
     </footer>
   </body>
+  <script src="/assets/js/scripts.js"></script>
 </html>
