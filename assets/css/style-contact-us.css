@@ -1,4 +1,7 @@
-/* Font face */
+::-webkit-scrollbar {
+    display: none;
+}
+
 @font-face {
     font-family: NexaBold;
     src: url(../fonts/NexaBold.ttf);
@@ -9,7 +12,6 @@
     src: url(../fonts/Nexa.otf);
 }
 
-/* Font styling */
 .nexa {
     font-family: Nexa;
 }
@@ -179,10 +181,9 @@ nav a.active:hover::after {
     color: white;
     text-align: center;
 }
+/*header end*/
 
-/*header start*/
-
-/* Contact container */
+/* contact container */
 .contact-container {
     display: flex;
     justify-content: space-between;
@@ -285,7 +286,6 @@ nav a.active:hover::after {
     text-decoration: underline;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 1200px) {
     .contact-container {
         padding: 40px 100px;
@@ -307,10 +307,9 @@ nav a.active:hover::after {
         margin-top: 5px;
     }
 
-    /* Navbar container */
     .navbar-container {
         background-color: white;
-        border-radius: 40px; /* Tambahkan border-radius */
+        border-radius: 40px;
         width: 85%;
         margin: 20px auto;
         padding: 10px 25px;

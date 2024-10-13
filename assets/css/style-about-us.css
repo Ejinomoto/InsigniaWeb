@@ -1,4 +1,7 @@
-/* general style */
+::-webkit-scrollbar {
+    display: none;
+}
+
 @font-face {
     font-family: NexaBold;
     src: url(../fonts/NexaBold.ttf);
@@ -207,6 +210,10 @@ nav a.active:hover::after {
     padding-right: 20px;
 }
 
+.about-left p {
+    text-align: justify;
+}
+
 .about-left h1 {
     font-size: 2.5rem;
     color: #000000;
@@ -332,6 +339,7 @@ nav a.active:hover::after {
 .service-item p {
     color: #666;
     font-size: 16px;
+    text-align: justify;
 }
 /*service end*/
 
@@ -339,7 +347,7 @@ nav a.active:hover::after {
 .industry-competence {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 30px;
     gap: 20px;
     background-color: #F5F5F5;
@@ -367,6 +375,7 @@ nav a.active:hover::after {
     font-size: 16px;
     margin-bottom: 20px;
     color: #666;
+    text-align: justify;
 }
 
 .competence-list {
@@ -411,7 +420,7 @@ nav a.active:hover::after {
 }
 /*industry competence end*/
 
-/* Set the entire div container to have a fixed background image */
+/* logistic start */
 .logistics-container {
     background-image: url('../images/product2.png');
     background-size: cover;
@@ -460,8 +469,8 @@ nav a.active:hover::after {
     color: #333;
     font-size: 24px;
 }
+/* logistic start */
 
-/* Media Query untuk max-width 1200px */
 @media (max-width: 1200px) {
     .about-container {
         padding: 40px 50px;
@@ -471,6 +480,10 @@ nav a.active:hover::after {
         padding-right: 10px;
     }
 
+    .image-container {
+        max-width: 500px;
+    }
+    
     .image-container img {
         margin-left: 50px;
     }
@@ -495,7 +508,7 @@ nav a.active:hover::after {
     .competence-list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-end;
         width: 100%;
     }
 
@@ -524,7 +537,6 @@ nav a.active:hover::after {
     }
 }
 
-/* Untuk layar dengan lebar maksimal 1035px */
 @media (max-width: 1036px) {
     .about-container {
         flex-direction: column;
@@ -561,7 +573,6 @@ nav a.active:hover::after {
     }
 }
 
-/* Untuk layar dengan lebar maksimal 768px */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -573,10 +584,9 @@ nav a.active:hover::after {
         margin-top: 5px;
     }
 
-    /* Navbar container */
     .navbar-container {
         background-color: white;
-        border-radius: 40px; /* Tambahkan border-radius */
+        border-radius: 40px;
         width: 85%;
         margin: 20px auto;
         padding: 10px 25px;
@@ -725,7 +735,6 @@ nav a.active:hover::after {
     }
 }
 
-/* Untuk layar dengan lebar maksimal 480px */
 @media (max-width: 480px) {
     .about-container {
         padding: 20px;
