@@ -11,19 +11,24 @@
     <header>
         <div class="logo-container">
             <a href="#" class="logo">
-                <img src="assets/images/logo.png" alt="vroom logo">
+                <img src="assets/images/logo-istana.png" alt="vroom logo">
             </a>
             <div class="header-actions">
                 <span class="call-us">Call us: <br> Free Support (012) 800-456-789</span>
                 <a href="#" class="cart"><span>$23.40</span></a>
             </div>
         </div>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="navbar-container">
-            <nav>
+            <nav id="navbar">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="catalog.html">Shop</a></li>
-                    <li><a href="about-us.html" class="active">About</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="catalog.html">SHOP</a></li>
+                    <li><a href="about-us.html" class="active">ABOUT</a></li>
                     <li><a href="contact-us.html">CONTACT</a></li>
                 </ul>
             </nav>
@@ -33,7 +38,7 @@
         </div>
         <div class="title-container">
             <h1>About Us</h1>
-            <h3><a href="index.html" id="link">Home</a>/ About</h3>
+            <h3><a href="index.html" id="link">Home</a> / About</h3>
         </div>
     </header>
 
@@ -52,7 +57,7 @@
         </div>
         <div class="about-right">
             <div class="image-container">
-                <img src="assets/img/ASU ROG Strix G17 17_3_ Gaming Laptop R9 16GB 1TB.jpeg" alt="Shipping Image">
+                <img src="assets/images/rog.png" alt="Shipping Image">
                 <div class="experience-card">
                     <h2 id="experience-count">0</h2>
                     <p>Years Of Experience</p>
@@ -83,7 +88,7 @@
     <!-- Industry Competence Section -->
     <div class="industry-competence">
         <div class="image-competence">
-            <img src="assets/img/rog.png" alt="Industry Competence Image" />
+            <img src="assets/images/logo-istana-black.png" />
         </div>
         <div class="competence-content">
             <h1>Our industry-explicit competence</h1>
@@ -116,7 +121,15 @@
         </div>
     </div>
     
+    <!-- JavaScript untuk hamburger menu -->
     <script>
+        const hamburger = document.getElementById('hamburger');
+        const navbar = document.getElementById('navbar');
+
+        hamburger.addEventListener('click', function() {
+            navbar.classList.toggle('active');
+        });
+
         window.onload = function() {
             let experienceElement = document.getElementById('experience-count');
             let startValue = 0;
