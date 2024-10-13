@@ -574,7 +574,12 @@ img {
 
 .product-harga {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
+}
+
+.product-disc {
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .product-rate {
