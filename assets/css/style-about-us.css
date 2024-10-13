@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -208,6 +212,7 @@ nav a.active:hover::after {
 .about-left {
     flex: 1;
     padding-right: 20px;
+    margin-top: 40px;
 }
 
 .about-left p {
@@ -426,7 +431,7 @@ nav a.active:hover::after {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -469,7 +474,73 @@ nav a.active:hover::after {
     color: #333;
     font-size: 24px;
 }
-/* logistic start */
+/* logistic end */
+
+footer {
+    background-color: #1d293f;
+    padding: 10px 0;
+    color: #fff;
+    margin: 0;
+}
+  
+  .footer-col img {
+    max-width: 50px;
+}
+  
+  .footer-col p {
+    max-width: 695px;
+    padding-bottom: 20px;
+}
+  
+  .footer-col {
+    margin: 20px;
+}
+  
+  .footer-col h4 {
+    color: #ffbb00;
+    padding-bottom: 20px;
+    margin-top: 0;
+}
+  
+  .footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+  .footer-col li {
+    margin-right: 20px;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+  
+  .footer-col li:hover {
+    transform: scale(1.05);
+    font-weight: bold;
+}
+  
+  .footer-col i {
+    font-size: 20px;
+    margin-right: 5.5px;
+}
+  
+  .footer-col i:hover {
+    font-weight: bold;
+    transform: scale(1.05);
+}
+  
+  .footer-col a {
+    color: #fff;
+    text-decoration: none;
+}
+  
+  .footer-container {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
+}
 
 @media (max-width: 1200px) {
     .about-container {
@@ -478,6 +549,7 @@ nav a.active:hover::after {
 
     .about-left {
         padding-right: 10px;
+        margin-top: 0;
     }
 
     .image-container {
@@ -661,6 +733,7 @@ nav a.active:hover::after {
     .about-left {
         padding-right: 0;
         text-align: center;
+        margin-top: 0;
     }
 
     .about-left h1 {
@@ -807,5 +880,117 @@ nav a.active:hover::after {
 
     .help-button {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+      .footer-container {
+        max-width: 1350px;
+    }
+    
+      .footer-col p {
+        max-width: 450px;
+    }
+    
+      .footer-col i {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .footer-container {
+        max-width: 1350px;
+    }
+    
+      .footer-col p {
+        max-width: 300px;
+    }
+    
+      .footer-col i {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .footer-container {
+        max-width: 1400px;
+    }
+    
+      .footer-col p {
+        max-width: 400px;
+    }
+    
+      .footer-col i {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .footer-col {
+      margin: 10px 0;
+      margin-bottom: 10px;
+      max-width: 600px;
+    }
+  
+    .footer-col img {
+      max-width: 45px;
+    }
+  
+    .footer-col p {
+      max-width: 100%;
+    }
+  
+    .footer-col ul {
+      padding: 0;
+      margin: 0 auto;
+      display: inline-block;
+    }
+  
+    .footer-col li {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    .footer-col i {
+      font-size: 20px;
+    }
+    .footer-col h4 {
+      margin-bottom: 10px;
+    }
+  }
+
+@media (min-width: 1441px) and (max-width: 1817px) {
+    .footer-container {
+        max-width: 1400px;
+    }
+
+    .footer-col p {
+        max-width: 500px;
+    }
+
+    .footer-col i {
+        font-size: 15px;
+    }
+}
+  
+@media (min-width: 1301px) and (max-width: 1439px) {
+    .footer-container {
+        max-width: 1400px;
+    }
+
+    .footer-col p {
+        max-width: 500px;
+    }
+
+    .footer-col i {
+        font-size: 15px;
     }
 }
