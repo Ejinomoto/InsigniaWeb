@@ -15,7 +15,7 @@
             </a>
             <div class="header-actions">
                 <span class="call-us">Call us: <br> Free Support (012) 800-456-789</span>
-                <a href="#" class="cart"><span>$23.40</span></a>
+                <a href="#" class="cart"><span><i class="fa-solid fa-cart-shopping"></i></span></a>
             </div>
         </div>
         <div class="hamburger" id="hamburger">
@@ -119,6 +119,58 @@
         </div>
     </div>
 
+    <!-- cart -->
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+        <h2>Your Cart</h2>
+        <button id="close-cart" class="close-cart-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-sidebar-footer">
+        <h3>Total: <span id="cart-total">Rp 0</span></h3>
+        <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- cart -->
+
+    <!-- checkout-->
+
+    <div id="checkout-sidebar" class="checkout-sidebar">
+        <div class="checkout-sidebar-header">
+        <h2>Checkout</h2>
+        <button id="close-checkout" class="close-checkout-btn">&times;</button>
+        </div>
+        <div id="checkout-items" class="checkout-items"></div>
+        <div class="checkout-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-total">
+            <strong>Total: <span id="summary-total">Rp 0</span></strong>
+        </div>
+        </div>
+        <div class="checkout-form">
+        <h3>Your Information</h3>
+        <form id="checkout-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+
+            <label for="address">Address:</label>
+            <textarea id="address" rows="3" required></textarea>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" required />
+
+            <button type="submit" class="submit-checkout-btn">Confirm Order</button>
+        </form>
+        </div>
+    </div>
+
+    <!-- checkout-->
+
     <footer>
       <div class="footer-container">
         <div class="footer-col">
@@ -154,6 +206,144 @@
       </div>
     </footer>
     
+    <!-- cart -->
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cartSidebar = document.getElementById("cart-sidebar");
+        const cartButton = document.querySelector(".cart");
+        const closeButton = document.getElementById("close-cart");
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+
+        cartButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        cartSidebar.classList.add("open");
+        displayCartItems();
+        });
+
+        closeButton.addEventListener("click", function () {
+        cartSidebar.classList.remove("open");
+        });
+
+        function displayCartItems() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cart.forEach((product) => {
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+
+            cartItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="cart-item-info">
+        <span>${product.name}</span>
+        <span>Price: ${product.price}</span>
+        <span>Quantity: ${product.quantity}</span>
+        </div>
+        <button class="remove-item" data-id="${product.id}">&times;</button>
+    `;
+
+            cartItemsContainer.appendChild(cartItem);
+
+            const numericPrice = parseFloat(product.price.replace(/[^0-9]/g, ""));
+
+            total += numericPrice * product.quantity;
+            });
+
+            cartTotal.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+        }
+
+        document.querySelectorAll(".remove-item").forEach((button) => {
+            button.addEventListener("click", function () {
+            removeFromCart(button.getAttribute("data-id"));
+            });
+        });
+        }
+
+        function removeFromCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter((item) => item.id !== productId);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems();
+        }
+    });
+    </script>
+    
+    <!-- cart -->
+
+    <!-- checkout -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const checkoutSidebar = document.getElementById("checkout-sidebar");
+        const checkoutButton = document.querySelector(".checkout-btn");
+        const closeCheckoutButton = document.getElementById("close-checkout");
+        const checkoutItemsContainer = document.getElementById("checkout-items");
+        const summaryTotal = document.getElementById("summary-total");
+        const checkoutForm = document.getElementById("checkout-form");
+
+        checkoutButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            checkoutSidebar.classList.add("open");
+            displayCheckoutItems();
+        });
+
+        closeCheckoutButton.addEventListener("click", function () {
+            checkoutSidebar.classList.remove("open");
+        });
+
+        function displayCheckoutItems() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            checkoutItemsContainer.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+            checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            summaryTotal.textContent = "Rp 0";
+            } else {
+            cart.forEach((product) => {
+                const checkoutItem = document.createElement("div");
+                checkoutItem.classList.add("checkout-item");
+
+                checkoutItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="checkout-item-info">
+        <span>${product.name}</span>
+        <span>Price: Rp ${parseFloat(product.price).toLocaleString()}</span>
+        <span>Quantity: ${product.quantity}</span>
+        </div>
+    `;
+
+                checkoutItemsContainer.appendChild(checkoutItem);
+
+                total += parseFloat(product.price) * product.quantity;
+            });
+
+            summaryTotal.textContent = `Rp ${total.toLocaleString()}`;
+            }
+        }
+
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Order confirmed! Thank you for your purchase.");
+
+            localStorage.removeItem("cart");
+            checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            summaryTotal.textContent = "Rp 0";
+
+            checkoutSidebar.classList.remove("open");
+            checkoutForm.reset();
+        });
+        });
+    </script>
+
+    <!-- checkout -->  
+
     <script>
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');

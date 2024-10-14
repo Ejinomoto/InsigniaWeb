@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VR Product Page</title>
+    <title>Istana Komputer</title>
     <link rel="stylesheet" href="assets/css/style-home.css" />
     <link
       rel="stylesheet"
@@ -20,14 +20,11 @@
       <header>
         <div class="logo-container">
           <a href="#" class="logo">
-            <img src="assets/images/logo-istana.png" alt="vroom logo" />
+            <img src="assets/images/logo-istana.png"/>
           </a>
           <div class="header-actions">
-            <span class="call-us"
-              >Call us: <br />
-              Free Support (012) 800-456-789</span
-            >
-            <a href="#" class="cart"><span>$23.40</span></a>
+            <span class="call-us">Call us: <br/>Free Support (012) 800-456-789</span>
+            <a href="#" class="cart"><span><i class="fa-solid fa-cart-shopping"></i></span></a>
           </div>
         </div>
         <div class="hamburger" id="hamburger">
@@ -38,8 +35,8 @@
         <div class="navbar-container">
           <nav id="navbar">
             <ul>
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="catalog.html" class="active">SHOP</a></li>
+              <li><a href="index.html" class="active">HOME</a></li>
+              <li><a href="catalog.html">SHOP</a></li>
               <li><a href="about-us.html">ABOUT</a></li>
               <li><a href="contact-us.html">CONTACT</a></li>
             </ul>
@@ -49,51 +46,213 @@
           </div>
         </div>
       </header>
-  
-    <script>
-        const hamburger = document.getElementById("hamburger");
-        const navbar = document.getElementById("navbar");
-  
-        hamburger.addEventListener("click", function () {
-          navbar.classList.toggle("active");
-        });
-  
-        window.onload = function () {
-          let experienceElement = document.getElementById("experience-count");
-          let startValue = 0;
-          let endValue = 20;
-          let duration = 1000;
-          let increment = endValue / (duration / 20);
-  
-          let counter = setInterval(function () {
-            startValue += increment;
-            if (startValue >= endValue) {
-              startValue = endValue;
-              clearInterval(counter);
-            }
-            experienceElement.textContent = Math.floor(startValue) + "+";
-          }, 20);
-        };
-      </script>
-  
 
       <section class="hero">
         <div class="hero-container">
           <div class="hero-content">
             <h2>Exclusive Offer - 20% Off This Month</h2>
             <h1>
-              PlayStation VR <br />
-              Over 100 Games & Counting
+              Gaming Laptop
             </h1>
             <h3>Starting at $129</h3>
-            <a href="#" class="btn">SHOP NOW</a>
+            <button class="btn-dark"><a href="catalog.html" style="text-decoration: none; color: white;">Shop Now</a></button>
           </div>
           <div class="hero-image">
-            <img src="assets/images/hero-laptop.png" alt="Playstation VR" />
+            <img src="assets/images/hero-laptop.png"/>
           </div>
         </div>
       </section>
     </div>
+
+    <!-- cart -->
+
+    <div id="cart-sidebar" class="cart-sidebar">
+      <div class="cart-sidebar-header">
+      <h2>Your Cart</h2>
+      <button id="close-cart" class="close-cart-btn">&times;</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-sidebar-footer">
+      <h3>Total: <span id="cart-total">Rp 0</span></h3>
+      <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+  </div>
+
+  <!-- cart -->
+
+  <!-- checkout-->
+
+  <div id="checkout-sidebar" class="checkout-sidebar">
+      <div class="checkout-sidebar-header">
+      <h2>Checkout</h2>
+      <button id="close-checkout" class="close-checkout-btn">&times;</button>
+      </div>
+      <div id="checkout-items" class="checkout-items"></div>
+      <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <div class="summary-total">
+          <strong>Total: <span id="summary-total">Rp 0</span></strong>
+      </div>
+      </div>
+      <div class="checkout-form">
+      <h3>Your Information</h3>
+      <form id="checkout-form">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" required />
+
+          <label for="address">Address:</label>
+          <textarea id="address" rows="3" required></textarea>
+
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" required />
+
+          <button type="submit" class="submit-checkout-btn">Confirm Order</button>
+      </form>
+      </div>
+  </div>
+
+  <!-- checkout-->
+
+   <!-- cart -->
+
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cartSidebar = document.getElementById("cart-sidebar");
+        const cartButton = document.querySelector(".cart");
+        const closeButton = document.getElementById("close-cart");
+        const cartItemsContainer = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+
+        cartButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        cartSidebar.classList.add("open");
+        displayCartItems();
+        });
+
+        closeButton.addEventListener("click", function () {
+        cartSidebar.classList.remove("open");
+        });
+
+        function displayCartItems() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cart.forEach((product) => {
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+
+            cartItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="cart-item-info">
+        <span>${product.name}</span>
+        <span>Price: ${product.price}</span>
+        <span>Quantity: ${product.quantity}</span>
+        </div>
+        <button class="remove-item" data-id="${product.id}">&times;</button>
+    `;
+
+            cartItemsContainer.appendChild(cartItem);
+
+            const numericPrice = parseFloat(product.price.replace(/[^0-9]/g, ""));
+
+            total += numericPrice * product.quantity;
+            });
+
+            cartTotal.textContent = `Rp ${total.toLocaleString("id-ID")}`;
+        }
+
+        document.querySelectorAll(".remove-item").forEach((button) => {
+            button.addEventListener("click", function () {
+            removeFromCart(button.getAttribute("data-id"));
+            });
+        });
+        }
+
+        function removeFromCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart = cart.filter((item) => item.id !== productId);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        displayCartItems();
+        }
+    });
+    </script>
+    
+    <!-- cart -->
+
+    <!-- checkout -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const checkoutSidebar = document.getElementById("checkout-sidebar");
+        const checkoutButton = document.querySelector(".checkout-btn");
+        const closeCheckoutButton = document.getElementById("close-checkout");
+        const checkoutItemsContainer = document.getElementById("checkout-items");
+        const summaryTotal = document.getElementById("summary-total");
+        const checkoutForm = document.getElementById("checkout-form");
+
+        checkoutButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            checkoutSidebar.classList.add("open");
+            displayCheckoutItems();
+        });
+
+        closeCheckoutButton.addEventListener("click", function () {
+            checkoutSidebar.classList.remove("open");
+        });
+
+        function displayCheckoutItems() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            checkoutItemsContainer.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+            checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            summaryTotal.textContent = "Rp 0";
+            } else {
+            cart.forEach((product) => {
+                const checkoutItem = document.createElement("div");
+                checkoutItem.classList.add("checkout-item");
+
+                checkoutItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <div class="checkout-item-info">
+        <span>${product.name}</span>
+        <span>Price: Rp ${parseFloat(product.price).toLocaleString()}</span>
+        <span>Quantity: ${product.quantity}</span>
+        </div>
+    `;
+
+                checkoutItemsContainer.appendChild(checkoutItem);
+
+                total += parseFloat(product.price) * product.quantity;
+            });
+
+            summaryTotal.textContent = `Rp ${total.toLocaleString()}`;
+            }
+        }
+
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Order confirmed! Thank you for your purchase.");
+
+            localStorage.removeItem("cart");
+            checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            summaryTotal.textContent = "Rp 0";
+
+            checkoutSidebar.classList.remove("open");
+            checkoutForm.reset();
+        });
+        });
+    </script>
+
+    <!-- checkout -->  
 
     <section class="products">
       <div class="main-container">
@@ -101,7 +260,7 @@
           <img src="assets/images/product1.png" alt="Lenovo VR" />
           <div class="card-content">
             <h4>Lenovo - Mirage Solo</h4>
-            <p>Virtual Reality Headset</p>
+            <p>Gaming Professional Laptop</p>
             <span>$399.00</span>
           </div>
         </div>
@@ -109,7 +268,7 @@
           <img src="assets/images/product1.png" alt="Lenovo VR" />
           <div class="card-content">
             <h4>Lenovo - Mirage Solo</h4>
-            <p>Virtual Reality Headset</p>
+            <p>Gaming Professional Laptop</p>
             <span>$399.00</span>
           </div>
         </div>
@@ -117,7 +276,7 @@
           <img src="assets/images/product1.png" alt="Lenovo VR" />
           <div class="card-content">
             <h4>Lenovo - Mirage Solo</h4>
-            <p>Virtual Reality Headset</p>
+            <p>Gaming Professional Laptop</p>
             <span>$399.00</span>
           </div>
         </div>
@@ -188,15 +347,12 @@
 
     <section class="mega-product">
       <div class="mega-container">
-        <!-- First Layer: Text below the image -->
         <h1 class="text-below">LENOVO LEGION</h1>
 
-        <!-- Image -->
         <div class="image-container">
           <img src="assets/images/laptop.png" alt="LENOVO LEGION" class="product-image" />
         </div>
 
-        <!-- Second Layer: Outline text above the image -->
         <h1 class="text-above">LENOVO LEGION</h1>
       </div>
     </section>
@@ -372,53 +528,42 @@
     <div class="product-collection">
       <div class="container">
         <div class="product-collection-wrapper">
-          <!-- bagian kiri -->
           <div class="product-col-left flex">
             <div class="product-col-content">
               <h2 class="sm-title">Komponen Komputer</h2>
               <h2 class="md-title">Komputer</h2>
-              <p class="text-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
-              </p>
-              <button type="button" class="btn-dark">Shop Now</button>
+              <p style="color: ba;">Menyediakan device printer untuk kebutuhan kantor, dokumen, dan operasional bisnis anda</p>
+              <button type="button" class="btn-dark"><a href="catalog.html" style="text-decoration: none; color: white;">Shop Now</a></button>
             </div>
           </div>
-          <!-- bagian kanan -->
+
           <div class="product-col-right">
             <div class="product-col-r-top flex">
               <div class="product-col-content">
                 <h2 class="sm-title">Printer</h2>
                 <h2 class="md-title">Printer</h2>
-                <p class="text-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure, quidem!
-                </p>
-                <button type="button" class="btn-dark">Shop Now</button>
+                <p class="text-light">Menyediakan device printer untuk kebutuhan kantor, dokumen, dan operasional bisnis anda</p>
+                <button type="button" class="btn-dark"><a href="catalog.html" style="text-decoration: none; color: white;">Shop Now</a></button>
               </div>
             </div>
 
             <div class="product-col-r-bottom">
-              <!-- bagian kiri -->
               <div class="flex">
                 <div class="product-col-content">
                   <h2 class="sm-title">PC Server</h2>
                   <h2 class="md-title">PC Server</h2>
-                  <p class="text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
-                    quidem!
-                  </p>
-                  <button type="button" class="btn-dark">Shop Now</button>
+                  <p class="text-light">PC server untuk kebutuhan server dan jaringan di kantor maupun sekolah anda</p>
+                  <button type="button" class="btn-dark"><a href="catalog.html" style="text-decoration: none; color: white;">Shop Now</a></button>
                 </div>
               </div>
-              <!-- bagian kanan -->
+
               <div class="flex">
                 <div class="product-col-content">
                   <h2 class="sm-title">Projector</h2>
                   <h2 class="md-title">Projector</h2>
-                  <p class="text-light">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque impedit iusto laudantium beatae omnis animi quis quam, atque, corrupti dolorum ab similique? Deserunt quae necessitatibus modi repellendus dolor? Iure,
-                    quidem!
+                  <p class="text-light">Menyediakan projector untuk kebutuhan presentasi bisnis anda, buat presentasi jadi lebih mudah dengan projector dari istana komputer
                   </p>
-                  <button type="button" class="btn-dark">Shop Now</button>
+                  <button type="button" class="btn-dark"><a href="catalog.html" style="text-decoration: none; color: white;">Shop Now</a></button>
                 </div>
               </div>
             </div>
