@@ -505,6 +505,74 @@
         window.location.href = "product-detail.html";
       }
     </script>
+
+    <!-- checkout -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkoutSidebar = document.getElementById("checkout-sidebar");
+        const checkoutButton = document.querySelector(".checkout-btn");
+        const closeCheckoutButton = document.getElementById("close-checkout");
+        const checkoutItemsContainer = document.getElementById("checkout-items");
+        const summaryTotal = document.getElementById("summary-total");
+        const checkoutForm = document.getElementById("checkout-form");
+
+        checkoutButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          checkoutSidebar.classList.add("open");
+          displayCheckoutItems();
+        });
+
+        closeCheckoutButton.addEventListener("click", function () {
+          checkoutSidebar.classList.remove("open");
+        });
+
+        function displayCheckoutItems() {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          checkoutItemsContainer.innerHTML = "";
+          let total = 0;
+
+          if (cart.length === 0) {
+            checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            summaryTotal.textContent = "Rp 0";
+          } else {
+            cart.forEach((product) => {
+              const checkoutItem = document.createElement("div");
+              checkoutItem.classList.add("checkout-item");
+
+              checkoutItem.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="checkout-item-info">
+        <span>${product.name}</span>
+        <span>Price: Rp ${parseFloat(product.price).toLocaleString()}</span>
+        <span>Quantity: ${product.quantity}</span>
+      </div>
+    `;
+
+              checkoutItemsContainer.appendChild(checkoutItem);
+
+              total += parseFloat(product.price) * product.quantity;
+            });
+
+            summaryTotal.textContent = `Rp ${total.toLocaleString()}`;
+          }
+        }
+
+        checkoutForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Order confirmed! Thank you for your purchase.");
+
+          localStorage.removeItem("cart");
+          checkoutItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+          summaryTotal.textContent = "Rp 0";
+
+          checkoutSidebar.classList.remove("open");
+          checkoutForm.reset();
+        });
+      });
+    </script>
+    <!-- checkout -->
+
+    <!-- cart -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const cartSidebar = document.getElementById("cart-sidebar");
@@ -570,6 +638,8 @@
         }
       });
     </script>
+    <!-- cart -->
+
     <script>
       const hamburger = document.getElementById("hamburger");
       const navbar = document.getElementById("navbar");
