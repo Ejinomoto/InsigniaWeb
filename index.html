@@ -30,13 +30,18 @@
             <a href="#" class="cart"><span>$23.40</span></a>
           </div>
         </div>
+        <div class="hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <div class="navbar-container">
-          <nav>
+          <nav id="navbar">
             <ul>
-              <li><a href="#" class="active">Home</a></li>
-              <li><a href="catalog.html">Shop</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="catalog.html" class="active">SHOP</a></li>
+              <li><a href="about-us.html">ABOUT</a></li>
+              <li><a href="contact-us.html">CONTACT</a></li>
             </ul>
           </nav>
           <div class="search-bar">
@@ -44,6 +49,33 @@
           </div>
         </div>
       </header>
+  
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navbar = document.getElementById("navbar");
+  
+        hamburger.addEventListener("click", function () {
+          navbar.classList.toggle("active");
+        });
+  
+        window.onload = function () {
+          let experienceElement = document.getElementById("experience-count");
+          let startValue = 0;
+          let endValue = 20;
+          let duration = 1000;
+          let increment = endValue / (duration / 20);
+  
+          let counter = setInterval(function () {
+            startValue += increment;
+            if (startValue >= endValue) {
+              startValue = endValue;
+              clearInterval(counter);
+            }
+            experienceElement.textContent = Math.floor(startValue) + "+";
+          }, 20);
+        };
+      </script>
+  
 
       <section class="hero">
         <div class="hero-container">
@@ -400,16 +432,6 @@
         <h5>Testimonials</h5>
         <h2>What Our Customers Say</h2>
         <div class="testimonial-container">
-          <div class="testimonial">
-            <img src="assets/images/product1.png" alt="Customer 1" />
-            <p>“I was blown away by the quality of the VR experience It's like being in a whole new world!”</p>
-            <span>- John Doe</span>
-          </div>
-          <div class="testimonial">
-            <img src="assets/images/product1.png" alt="Customer 2" />
-            <p>“I've never felt so immersed in a game before The VR headset is a must-have for any gamer!”</p>
-            <span>- Jane Smith</span>
-          </div>
           <div class="testimonial">
             <img src="assets/images/product1.png" alt="Customer 1" />
             <p>“I was blown away by the quality of the VR experience It's like being in a whole new world!”</p>
