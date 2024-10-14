@@ -99,43 +99,67 @@
 
           const galleryContainer = document.getElementById("gallery-container");
           if (productData.gallery && productData.gallery.length > 0) {
-            productData.gallery.forEach((imageSrc, index) => {
+            productData.gallery.forEach((mediaSrc, index) => {
               const divElement = document.createElement("div");
-              const imgElement = document.createElement("img");
 
-              imgElement.src = imageSrc;
-              imgElement.alt = `product gallery image ${index + 1}`;
-              imgElement.classList.add("gallery-image");
-
-              divElement.appendChild(imgElement);
+              if (mediaSrc.includes("youtube.com") || mediaSrc.includes("youtu.be")) {
+                const iframeElement = document.createElement("iframe");
+                const videoId = mediaSrc.split("v=")[1] || mediaSrc.split("/")[3];
+                iframeElement.src = `https://www.youtube.com/embed/${videoId}?controls=0`;
+                iframeElement.classList.add("gallery-video");
+                divElement.appendChild(iframeElement);
+              } else if (mediaSrc.endsWith(".mp4")) {
+                const videoElement = document.createElement("video");
+                videoElement.src = mediaSrc;
+                videoElement.width = 350;
+                videoElement.controls = false;
+                videoElement.classList.add("gallery-video");
+                divElement.appendChild(videoElement);
+              } else {
+                const imgElement = document.createElement("img");
+                imgElement.src = mediaSrc;
+                imgElement.alt = `product gallery media ${index + 1}`;
+                imgElement.classList.add("gallery-image");
+                divElement.appendChild(imgElement);
+              }
 
               galleryContainer.appendChild(divElement);
             });
 
-            const allHoverImages = document.querySelectorAll(".hover-container div img");
+            const allHoverElements = document.querySelectorAll(".hover-container div img, .hover-container div iframe, .hover-container div video");
             const imgContainer = document.querySelector(".img-product-container");
 
-            allHoverImages[0].parentElement.classList.add("active");
+            allHoverElements[0].parentElement.classList.add("active");
 
-            allHoverImages.forEach((image) => {
-              image.addEventListener("mouseover", () => {
-                imgContainer.querySelector("img").src = image.src;
+            allHoverElements.forEach((mediaElement) => {
+              mediaElement.addEventListener("mouseover", () => {
+                if (mediaElement.tagName === "IMG") {
+                  imgContainer.querySelector("img").src = mediaElement.src;
+                } else if (mediaElement.tagName === "IFRAME") {
+                  const fullSizeIframe = mediaElement.cloneNode(true);
+                  fullSizeIframe.src = fullSizeIframe.src.replace("?controls=0", "");
+                  fullSizeIframe.style.width = "350px";
+                  fullSizeIframe.style.height = "200px";
+                  imgContainer.innerHTML = fullSizeIframe.outerHTML;
+                } else if (mediaElement.tagName === "VIDEO") {
+                  imgContainer.innerHTML = mediaElement.outerHTML;
+                }
 
-                resetActiveImg();
-
-                image.parentElement.classList.add("active");
+                resetActiveMedia();
+                mediaElement.parentElement.classList.add("active");
               });
             });
 
-            function resetActiveImg() {
-              allHoverImages.forEach((img) => {
-                img.parentElement.classList.remove("active");
+            function resetActiveMedia() {
+              allHoverElements.forEach((media) => {
+                media.parentElement.classList.remove("active");
               });
             }
           }
         }
       });
     </script>
+
     <footer>
       <div class="footer-container">
         <div class="footer-col">
