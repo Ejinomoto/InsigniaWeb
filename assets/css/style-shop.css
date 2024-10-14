@@ -1673,5 +1673,32 @@ img {
 
   .help-button {
     width: 100%;
+    ate-columns: repeat(3, 1fr);
+    padding: 0;
+  }
+  .rating {
+    font-size: 12px;
+  }
+  .product-name {
+    font-size: 15px;
+  }
+  .product-disc {
+    font-size: 13px;
+  }
+
+  .product-price {
+    font-size: 13px;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+  }
+
+  .footer-col p {
+    max-width: 500px;
+  }
+
+  .footer-col i {
+    font-size: 15px;
   }
 }
