@@ -12,6 +12,25 @@ body {
   display: none; /* For Chrome, Safari, and Opera */
 }
 
+@font-face {
+  font-family: NexaBold;
+  src: url(../fonts/NexaBold.ttf);
+}
+
+@font-face {
+  font-family: Nexa;
+  src: url(../fonts/Nexa.otf);
+}
+
+.nexa {
+  font-family: Nexa;
+}
+
+.nexa-bold {
+  font-family: NexaBold;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -380,7 +399,7 @@ nav a.active:hover::after {
 }
 
 .category {
-  margin-left: 35px;
+  /* margin-left: 35px; */
   margin-bottom: 50px;
 }
 
@@ -450,17 +469,17 @@ nav a.active:hover::after {
   text-align: center;
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  .category-item {
-    width: 100px;
-    height: 100px;
-  }
-
-  .category-item-container span {
-    font-size: 14px;
+@media (max-width: 1347px) {
+  .product-card img {
+    width: 50%;
+    height: 130%;
+    object-fit: cover;
+    transform: translateY(-15px);
   }
 }
+
+/* Responsive Styling */
+
 
 /* Additional sections */
 .product-container {
@@ -651,6 +670,13 @@ nav a.active:hover::after {
   margin-left: 20px;
 }
 
+.comment-container h5 {
+  font-size: 16px;
+  margin-top: 0;
+  color: #e32a2ae2;
+  margin-left: 20px;
+}
+
 .testimonial {
   margin: 20px;
   padding: 20px;
@@ -755,6 +781,11 @@ footer {
   .product-grid {
     justify-content: space-evenly;
   }
+
+  .main-container {
+    flex-direction: row; /* Stack the cards vertically */
+    padding: 0 10px;
+  }
 }
 
 /* Responsive for medium screens */
@@ -777,9 +808,35 @@ footer {
   .hero-content h1 {
     font-size: 40px;
   }
+  
+  .main-container {
+    flex-direction: row; /* Stack the cards vertically */
+    padding: 0 10px;
+  }
+
+  .card-content {
+    padding: 0;
+  }
+  
+  .card-content h4 {
+    font-size: 13px;
+  }
+
+  .card-content p {
+    font-size: 11px;
+  }
+
+  .card-content span {
+    font-size: 13px;
+  }
+
+  .product-card {
+    padding: 0;
+    height: 80%;
+  }
+
 }
 
-/* Responsive for tablet screens */
 @media (max-width: 768px) {
   .navbar-container {
     width: 100%;
@@ -802,6 +859,50 @@ footer {
   .hero-content h1 {
     font-size: 36px;
   }
+
+  .category-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  .category-item-container span {
+    font-size: 14px;
+  }
+
+  .main-container {
+    flex-direction: column; /* Stack the cards vertically */
+    padding: 0 10px;
+  }
+
+  .product-card {
+    width: 100%; /* Take full width on mobile */
+    height: auto; /* Allow the height to adjust based on content */
+    margin: 10px 0; /* Add margin for spacing between cards */
+    padding: 15px; /* Reduce padding for a cleaner mobile view */
+    flex-direction: column; /* Stack image and text vertically */
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto; /* Adjust the image size automatically */
+    margin-bottom: 10px; /* Add space between image and content */
+  }
+
+  .product-card .card-content {
+    padding-left: 0; /* Remove left padding on mobile */
+  }
+
+  .product-card h4 {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .product-card p {
+    font-size: 12px; /* Smaller font size for text on mobile */
+  }
+
+  .product-card span {
+    font-size: 16px; /* Adjust price font size for mobile */
+  }
 }
 
 /* Responsive for mobile screens */
@@ -822,8 +923,17 @@ footer {
     font-size: 28px;
   }
 
+  .main-container {
+    max-width: 700px;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 50%;
+  }
+
   .category-grid {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 20px;
   }
 
@@ -837,8 +947,34 @@ footer {
   }
 
   .product-card {
-    width: 100%;
-    margin: 10px;
+    width: 100%; /* Take full width on mobile */
+    height: auto; /* Allow the height to adjust based on content */
+    margin: 10px 0; /* Add margin for spacing between cards */
+    padding: 15px; /* Reduce padding for a cleaner mobile view */
+    flex-direction: column; /* Stack image and text vertically */
+  }
+
+  .product-card img {
+    width: 40%;
+    height: auto; /* Adjust the image size automatically */
+    margin-bottom: 10px; /* Add space between image and content */
+    transform: translateY(10px);
+  }
+
+  .product-card .card-content {
+    padding-left: 0; /* Remove left padding on mobile */
+  }
+
+  .product-card h4 {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .product-card p {
+    font-size: 12px; /* Smaller font size for text on mobile */
+  }
+
+  .product-card span {
+    font-size: 16px; /* Adjust price font size for mobile */
   }
 
   .hero-image img {
@@ -1141,7 +1277,7 @@ img {
   background: black;
   color: white;
   outline: 0;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 0.7rem 1rem;
   border: 0;
   margin-top: 1rem;
