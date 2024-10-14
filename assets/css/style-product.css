@@ -19,6 +19,12 @@
   src: url(../fonts/Nexa.otf);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .nexa {
   font-family: Nexa;
 }
@@ -175,9 +181,8 @@ nav ul {
 }
 
 nav li {
-  margin-right: 20px;
+  margin-right: 0px;
 }
-
 nav a {
   color: black;
   text-decoration: none;
@@ -335,9 +340,9 @@ footer {
 
 .navbar-container {
   background-color: white;
-  padding: 5px 20px 5px 20px;
+  padding: 5px 25px 5px 25px;
   border-radius: 40px;
-  width: 85%;
+  width: 87.6%;
   margin: 23px auto;
   display: flex;
   justify-content: space-between;
@@ -346,16 +351,8 @@ footer {
 
 .search-bar {
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-.search-bar input {
-  margin: 5px 0;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 40px;
-  width: 250px;
 }
 
 .search-bar input {
@@ -500,8 +497,13 @@ img {
 
 .title-container {
   color: white;
-  padding-top: 2px;
-  padding-bottom: 1px;
+  text-align: center;
+}
+
+.title-container h3 {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
