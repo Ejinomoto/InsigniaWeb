@@ -356,6 +356,8 @@ footer {
   font-weight: bold;
 }
 
+/* checkouyt */
+
 .checkout-sidebar {
   position: fixed;
   right: -800px;
@@ -470,6 +472,10 @@ footer {
   background-color: #218838;
 }
 
+/* checkouyt */
+
+/* cart confirrm modal*/
+
 .modal {
   display: none;
   position: fixed;
@@ -510,6 +516,10 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* cart confirrm modal*/
+
+/* cart  */
 
 .cart-sidebar {
   position: fixed;
@@ -636,6 +646,8 @@ footer {
   background-color: #ccc;
   border-radius: 10px;
 }
+
+/* cart  */
 
 .logo-container {
   display: flex;
